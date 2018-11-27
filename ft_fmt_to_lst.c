@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 19:55:04 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 22:07:00 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/27 22:14:53 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 		start = j;
 		while (j < len && !ft_isconv(data->fmt[j]))
 			j++;
-		if (ft_isflag(data->fmt[j]))
+		if (ft_isconv(data->fmt[j]))
 			ft_lst_push_flag(data, begin_list, start, j);
 		else
 			ft_lst_push_txt(data, begin_list, start, j);

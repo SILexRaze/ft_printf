@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 22:08:57 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/27 22:15:55 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_isconv(char c)
 
 int		ft_is_univ_flag(char c)
 {
-	if (c == '#' || c == '0' || c == '-' || c == '+' c == ' ')
+	if (c == '#' || c == '0' || c == '-' || c == '+' || c == ' ')
 		return (1);
 	return (0);
 }
@@ -54,6 +54,7 @@ void	ft_put_nb_flag(t_data *data, t_list **begin_list)
 	{
 		if (tmp->isflag == 1)
 		{
+			if 
 		}
 		tmp = tmp->next;
 	}
