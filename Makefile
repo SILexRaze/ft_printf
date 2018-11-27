@@ -6,18 +6,39 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/11/27 12:03:39 by vifonne          ###   ########.fr        #
+#    Updated: 2018/11/27 17:41:07 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		main.c					\
-					ft_init_db.c			\
+					ft_printf.c				\
+					ft_parse.c				\
 
 INCLUDES	=		includes/
 
 OBJ			=		$(SRCS:.c=.o)
 
-CC			=		gcc -Wall -Wextra -Werror
+
+
+
+
+
+
+
+
+# NE PAS OUBLIER DE RAJOUTER LES FLAGS
+CC			=		gcc -fsanitize=address
+
+
+
+
+
+
+
+
+
+
+
 
 NAME		=		printf
 
@@ -35,14 +56,17 @@ $(NAME): $(OBJ) $(SRCS)
 	make -C libft/
 	@echo "$(_YELLOW)"
 	$(CC) $(SRCS) -o $(NAME) -I libft/includes -I $(INCLUDES) -L libft/ -lft
+	@echo "$(_WHITE)"
 
 clean:
 	@echo "$(_RED)"
 	rm -f $(OBJ)
 	make clean -C ./libft/
+	@echo "$(_WHITE)"
 
 fclean:	clean
 	rm -f $(NAME)
 	make fclean -C ./libft/
+	@echo "$(_WHITE)"
 
 re:	fclean $(NAME)

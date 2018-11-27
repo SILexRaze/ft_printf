@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 21:48:05 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/14 21:48:07 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/27 16:22:55 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_list_pushback(t_list **begin_list, void *data)
+void	ft_list_pushback(t_list **begin_list, void *data, int isflag)
 {
 	t_list	*tmp;
 
@@ -21,8 +21,8 @@ void	ft_list_pushback(t_list **begin_list, void *data)
 		tmp = *begin_list;
 		while (tmp->next)
 			tmp = tmp->next;
-		tmp->next = ft_create_elem(data);
+		tmp->next = ft_create_elem(data, isflag);
 	}
 	else
-		*begin_list = ft_create_elem(data);
+		*begin_list = ft_create_elem(data, isflag);
 }

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/26 14:55:49 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/11/27 16:26:48 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct		s_list
 {
 	void			*data;
+	int				isflag;
 	struct s_list	*next;
 }					t_list;
 
@@ -30,8 +31,8 @@ void				ft_print_tab_str(char **tab);
 int					get_next_line(const int fd, char **line);
 int					ft_max(int a, int b);
 int					ft_sqrt(int nb);
-void				ft_list_pushback(t_list **begin_list, void *data);
-void				ft_list_pushfront(t_list **begin_list, void *data);
+void				ft_list_pushback(t_list **begin_list, void *data, int isflag);
+void				ft_list_pushfront(t_list **begin_list, void *data, int isflag);
 void				ft_memdel(void **ap);
 void				ft_bzero(void *s, size_t n);
 void				ft_strdel(char **as);
@@ -52,6 +53,7 @@ void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
+void				ft_print_list(t_list **begin_list);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strncat(char *s1, const char *s2, size_t n);
@@ -86,6 +88,6 @@ int					ft_tolower(int c);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_atoi(const char *str);
-t_list				*ft_create_elem(void *data);
+t_list				*ft_create_elem(void *data, int isflag);
 
 #endif

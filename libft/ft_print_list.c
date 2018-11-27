@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_print_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 14:34:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 16:54:13 by vifonne          ###   ########.fr       */
+/*   Created: 2018/11/27 16:24:29 by vifonne           #+#    #+#             */
+/*   Updated: 2018/11/27 18:23:02 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_print_list(t_list **begin_list)
 {
-	char	*str;
-	size_t	end;
-	size_t	i;
+	t_list	*tmp;
 
-	i = 0;
-	if (s)
+	tmp = *begin_list;
+	if (tmp)
 	{
-		end = (size_t)start + len;
-		if (!(str = ft_strnew(len)))
-			return (NULL);
-		while (start < end && s[start])
-			str[i++] = s[start++];
-		str[i] = '\0';
-		return (str);
+		while (tmp)
+		{
+			ft_putstr((char *)tmp->data);
+			ft_putchar('\n');
+			tmp = tmp->next;
+		}
 	}
-	return (NULL);
 }
