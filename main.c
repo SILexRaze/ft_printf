@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 19:51:38 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/27 20:18:48 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		ft_printf("SALUT%.10dCAVA%d&&%d%d%d%d%d", ft_atoi(av[1]));
+		ft_printf("SALUT%.10dCAVA%d%d%d%d%d%d", ft_atoi(av[1]));
 	}
 	return (0);
 }

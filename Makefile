@@ -6,13 +6,14 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/11/27 17:41:07 by vifonne          ###   ########.fr        #
+#    Updated: 2018/11/27 20:11:33 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		main.c					\
 					ft_printf.c				\
 					ft_parse.c				\
+					ft_fmt_to_lst.c			\
 
 INCLUDES	=		includes/
 
