@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 20:26:57 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/27 22:08:57 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_isflag(char c)
+int		ft_isconv(char c)
 {
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'c'
 			|| c == 's' || c == 'p')
@@ -20,7 +20,14 @@ int		ft_isflag(char c)
 	return (0);
 }
 
-void	ft_count_flag(t_data *data, t_list **begin_list)
+int		ft_is_univ_flag(char c)
+{
+	if (c == '#' || c == '0' || c == '-' || c == '+' c == ' ')
+		return (1);
+	return (0);
+}
+
+void	ft_count_conv(t_data *data, t_list **begin_list)
 {
 	t_list	*tmp;
 	int		i;
@@ -36,18 +43,28 @@ void	ft_count_flag(t_data *data, t_list **begin_list)
 	data->nb_flag = i;
 }
 
-/*void	ft_put_nb_flag(t_data *data, t_list **lst)
+void	ft_put_nb_flag(t_data *data, t_list **begin_list)
 {
 	t_list	*tmp;
+	int		i;
 
+	i = 1;
+	tmp = *begin_list;
+	while (i < data->nb_flag && tmp)
+	{
+		if (tmp->isflag == 1)
+		{
+		}
+		tmp = tmp->next;
+	}
 }
-*/
+
 void	ft_main_parsing(t_data *data, t_list **lst)
 {
 	int	i;
 
 	i = 0;
 	*lst = ft_lst_parse_flags(data, lst);
-	ft_count_flag(data, lst);
+	ft_count_conv(data, lst);
 	ft_put_nb_flag(data, lst);
 }
