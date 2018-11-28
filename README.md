@@ -27,8 +27,6 @@ PARTIE OBLIGATOIRE
     Gestion de la precision (?)
 
 
-
-
 BONUS
 
     %b affichera une valeur décimale en binaire

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 19:55:04 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/28 14:35:16 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/28 22:23:37 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 	int		j;
 	int		start;
 	int		len;
-	char	*tmp;
 
 	j = -1;
-	tmp = NULL;
 	len = ft_strlen(data->fmt);
 	while (++j < len)
 	{
@@ -45,8 +43,7 @@ void	ft_lst_push_txt(t_data *data, t_list **begin_list, int start, int j)
 {
 	char	*tmp;
 
-	if (!(tmp = ft_strnew(0)))
-		exit(0);
+	tmp = NULL;
 	if (j - start > 0)
 	{
 		if (!(tmp = ft_strsub(data->fmt, start, j - start)))
@@ -62,10 +59,11 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list, int start, int j)
 
 	if (j - start + 1 > 0)
 	{
-		if (!(tmp = ft_strnew(0)))
-			exit(0);
 		if (!(tmp = ft_strsub(data->fmt, start, j - start + 1)))
 			exit(0);
+		printf("%s\n", tmp);
+		data->flags = ft_parse_flag(tmp, data);
+		printf("#=%d|0=%d|-=%d|+=%d| =%d\n", data->flags->hash, data->flags->zero, data->flags->minus, data->flags->plus, data->flags->space);
 		ft_list_pushback(begin_list, (void *)ft_strdup(tmp), 1);
 		ft_strdel(&tmp);
 	}

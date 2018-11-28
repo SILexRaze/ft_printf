@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/28 14:43:42 by hwolff           ###   ########.fr       */
+/*   Updated: 2018/11/28 22:27:33 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** void     va_end(va_list ap);
 */
 
-struct			s_flag
+typedef struct	s_flag
 {
 	int			hash;
 	int			zero;
@@ -38,12 +38,15 @@ typedef struct	s_data
 	char		**d_flags;
 	char		*fmt;
 	int			nb_flag;
+	int			n;
+	t_flag		*flags;
 }				t_data;
 
 t_list			*ft_lst_parse_flags(t_data *data, t_list **begin_list);
 int				ft_printf(const char *restrict format, ...);
 int				ft_isconv(char c);
 int				ft_is_univ_flag(char c);
+t_flag			*ft_parse_flag(char *str, t_data *data);
 void			ft_count_conv(t_data *data, t_list **begin_list);
 void			ft_lst_push_txt(t_data *data, t_list **begin_list, int start,
 					int j);

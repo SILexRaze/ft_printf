@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/11/27 20:11:33 by vifonne          ###   ########.fr        #
+#    Updated: 2018/11/28 15:46:01 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,7 @@ OBJ			=		$(SRCS:.c=.o)
 
 
 # NE PAS OUBLIER DE RAJOUTER LES FLAGS
-CC			=		gcc -fsanitize=address
-
-
-
+CCF			=		gcc -g
 
 
 
