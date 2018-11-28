@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 22:20:17 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/11/28 14:33:23 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,6 @@ void	ft_count_conv(t_data *data, t_list **begin_list)
 	data->nb_flag = i;
 }
 
-void	ft_put_nb_flag(t_data *data, t_list **begin_list)
-{
-	t_list	*tmp;
-	int		i;
-
-	i = 1;
-	tmp = *begin_list;
-	while (i < data->nb_flag && tmp)
-	{
-		if (tmp->isflag == 1)
-		{
-			if 
-		}
-		tmp = tmp->next;
-	}
-}
-
 void	ft_main_parsing(t_data *data, t_list **lst)
 {
 	int	i;
@@ -67,5 +50,4 @@ void	ft_main_parsing(t_data *data, t_list **lst)
 	i = 0;
 	*lst = ft_lst_parse_flags(data, lst);
 	ft_count_conv(data, lst);
-	ft_put_nb_flag(data, lst);
 }
