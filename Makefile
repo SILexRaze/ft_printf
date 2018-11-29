@@ -6,38 +6,20 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/11/28 15:46:01 by vifonne          ###   ########.fr        #
+#    Updated: 2018/11/29 12:19:21 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		main.c					\
 					ft_printf.c				\
-					ft_parse.c				\
-					ft_fmt_to_lst.c			\
+					parser/parser.c				\
+					parser/fmt_to_lst.c			\
+					parser/parse_extra.c
 
 INCLUDES	=		includes/
-
 OBJ			=		$(SRCS:.c=.o)
-
-
-
-
-
-
-
-
-
 # NE PAS OUBLIER DE RAJOUTER LES FLAGS
-CCF			=		gcc -g
-
-
-
-
-
-
-
-
-
+CCF			=		gcc -fsanitize=address
 NAME		=		printf
 
 _RED=$'\x1b[31m$'
