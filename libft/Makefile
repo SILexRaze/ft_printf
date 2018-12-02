@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/11/27 16:26:29 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/02 00:41:21 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,17 +53,24 @@ all:	$(NAME)
 
 %.o :	%.c ./libft.h
 	@$(CC) -I ./libft.h -c -o $@ $<
-	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
+	@/bin/echo -n "#"
 
-$(NAME): $(OBJ)
+$(NAME): pbstart $(OBJ) pbstop
 	@$(CC) -I ./libft.h -c $(SRCS)
 	@ar rcs $(NAME) $(OBJ)
+	@echo "$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
+
+pbstart:
+	@echo "$(_BLUE)$(_UNDER)Compiling $(_BOLD)$(NAME) :$(_END)$(_WHITE)\t$(CC)\n"
+	@/bin/echo -n "0% ["
+
+pbstop:
+	@/bin/echo "] 100%"
 
 clean:
-	@echo "$(_YELLOW)"
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re:	fclean $(NAME)

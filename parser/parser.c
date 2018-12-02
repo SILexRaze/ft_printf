@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/29 13:14:55 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/02 17:56:48 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	ft_parse_width_accu(char *str, t_data *data)
 	data->f_width = 0;
 	while (str[i - 1])
 	{
-		if (str[i] > '0' && str[i] <= '9')
+		if (str[i] >= '0' && str[i] <= '9')
 		{
 			if (data->accu == -1)
-				data->f_width = ft_atoi(str + i);
+				data->f_width = ft_atoi(str + i - 1);
 			else if (str[i - 1] == '.')
 				data->accu = ft_atoi(str + i);
 		}
