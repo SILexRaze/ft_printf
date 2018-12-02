@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 16:26:48 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/02 18:08:12 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void				ft_print_tab_str(char **tab);
 int					get_next_line(const int fd, char **line);
 int					ft_max(int a, int b);
 int					ft_sqrt(int nb);
-void				ft_list_pushback(t_list **begin_list, void *data, int isflag);
-void				ft_list_pushfront(t_list **begin_list, void *data, int isflag);
+void				ft_list_pushback(t_list **begin_list, void *data,
+					int isflag);
+void				ft_list_pushfront(t_list **begin_list, void *data,
+					int isflag);
 void				ft_memdel(void **ap);
 void				ft_bzero(void *s, size_t n);
 void				ft_strdel(char **as);

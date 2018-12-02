@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/02 00:41:21 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/02 18:10:52 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ $(NAME): pbstart $(OBJ) pbstop
 	@echo "$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
 
 pbstart:
-	@echo "$(_BLUE)$(_UNDER)Compiling $(_BOLD)$(NAME) :$(_END)$(_WHITE)\t$(CC)\n"
+	@echo "$(_YELLOW)$(_UNDER)Compiling $(_BOLD)$(NAME) :$(_END)$(_WHITE)\t$(CC)\n"
 	@/bin/echo -n "0% ["
 
 pbstop:
