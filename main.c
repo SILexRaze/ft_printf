@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 14:02:33 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 15:53:45 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 int		main(int ac, char **av)
 {
-	ft_printf("%24s", "va");
+	char	*c;
+
+	c = "salut";
+	ft_printf("%p\n", c);
 	(void)ac;
 	(void)av;
 	return (0);

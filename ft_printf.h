@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 14:21:00 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 15:50:47 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct	s_parser
 
 typedef struct	s_data
 {
-	char		**d_flags;
 	char		*fmt;
 	int			nb_flag;
 	int			n;
@@ -76,5 +75,13 @@ t_data			*ft_dispatch(t_data *data);
 */
 char			*ft_char(t_data *data);
 char			*ft_string(t_data *data);
+char			*ft_minhex(t_data *data);
+char			*ft_maxhex(t_data *data);
+char			*ft_float(t_data *data);
 char			*ft_ptr(t_data *data);
+
+char			*ft_itoa_base_lower(int value, int base);
+char			*ft_itoa_base(int value, int base);
+char			*ft_double_to_array(long double value, int p);
+char			*ft_putaddr_to_str(long long value);
 #endif
