@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_csp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 11:59:50 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/03 12:02:01 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #include <stdio.h>
 
-int		main(int ac, char **av)
+char	*ft_char(char *str)
 {
-	if (ac > 1)
-	{
-		ft_printf("%24s");
-		ft_printf("%.023c");
-		ft_printf("%p");
-	}
-	(void)av;
-	return (0);
+	
+	return (str);
+}
+
+char	*ft_string(char *str)
+{
+	printf("ft_string\n");
+	return (str);
+}
+
+char	*ft_ptr(char *str)
+{
+	printf("ft_ptr\n");
+	return (str);
 }

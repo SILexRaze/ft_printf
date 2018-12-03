@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/02 18:13:42 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 11:41:35 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,11 @@ void			ft_main_parsing(t_data *data, t_list **lst);
 ** LE RESTE
 */
 int				ft_printf(const char *restrict format, ...);
+char			*ft_dispatch(char *str);
+/*
+** Fonctions d'exec
+*/
+char			*ft_char(char *str);
+char			*ft_string(char *str);
+char			*ft_ptr(char *str);
 #endif

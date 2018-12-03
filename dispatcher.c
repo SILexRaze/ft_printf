@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dispatcher.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 11:59:50 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/03 12:04:44 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int		main(int ac, char **av)
+char	*(*g_tab[])(char *str) = {ft_char, ft_string, ft_ptr};
+
+char	*ft_dispatch(char *str)
 {
-	if (ac > 1)
+	char	*db;
+	int		i;
+	int		len;
+
+	len = ft_strlen(str) - 1;
+	i = 0;
+	db = "cspdiouxXf%";
+	while (db[i])
 	{
-		ft_printf("%24s");
-		ft_printf("%.023c");
-		ft_printf("%p");
+		if (str[len] == db[i])
+			break ;
+		i++;
 	}
-	(void)av;
-	return (0);
+	(g_tab[i])(str);
+	return (str);
 }

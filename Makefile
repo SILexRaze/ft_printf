@@ -6,15 +6,17 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/02 18:10:38 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/03 11:56:00 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		main.c						\
 					ft_printf.c					\
+					dispatcher.c				\
 					parser/parser.c				\
 					parser/fmt_to_lst.c			\
-					parser/parse_extra.c
+					parser/parse_extra.c		\
+					exec/ft_csp.c
 INCLUDES	=		libft/
 OBJ			=		$(SRCS:.c=.o)
 # NE PAS OUBLIER DE RAJOUTER LES FLAGS

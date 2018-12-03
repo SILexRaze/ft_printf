@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/02 18:08:42 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 12:04:43 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,9 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list, int start, int j)
 		data->f_width = -1;
 		ft_parse_width_accu(tmp, data);
 		data->flags = ft_parse_flag(tmp, data);
-		printf("\n0=%d / +=%d / -=%d / #=%d /  =%d\n", data->flags->zero, data->flags->plus, data->flags->minus, data->flags->hash, data->flags->space);
-		printf("tmp=\t\t%s\nf_width=\t%d\naccu=\t\t%d\n", tmp, data->f_width, data->accu);
+		//printf("\n0=%d / +=%d / -=%d / #=%d /  =%d\n", data->flags->zero, data->flags->plus, data->flags->minus, data->flags->hash, data->flags->space);
+		//printf("tmp=\t\t%s\nf_width=\t%d\naccu=\t\t%d\n", tmp, data->f_width, data->accu);
+		ft_dispatch(tmp);
 		ft_list_pushback(begin_list, (void *)ft_strdup(tmp), 1);
 		ft_strdel(&tmp);
 	}
