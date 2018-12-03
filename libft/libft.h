@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/02 18:08:12 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 13:50:40 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_list_size(t_list **begin_list);
 void				ft_print_tab_int(int *tab);
 void				ft_print_tab_str(char **tab);
 int					get_next_line(const int fd, char **line);

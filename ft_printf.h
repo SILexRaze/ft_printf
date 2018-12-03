@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 12:18:14 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 14:21:00 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
-
 /*
 ** FONCTIONS DU MAN 3 STDARG OK POUR LE PROJET
 ** void     va_start(va_list ap, last);
@@ -23,7 +22,6 @@
 ** void     va_copy(va_list dest, va_list src);
 ** void     va_end(va_list ap);
 */
-
 typedef struct	s_flag
 {
 	int			hash;
@@ -50,6 +48,7 @@ typedef struct	s_data
 	int			accu;
 	t_flag		*flags;
 	t_parser	*prs;
+	va_list		ap;
 }				t_data;
 /*
 ** PARSER
@@ -71,11 +70,11 @@ void			ft_main_parsing(t_data *data, t_list **lst);
 ** LE RESTE
 */
 int				ft_printf(const char *restrict format, ...);
-char			*ft_dispatch(char *str);
+t_data			*ft_dispatch(t_data *data);
 /*
 ** Fonctions d'exec
 */
-char			*ft_char(char *str);
-char			*ft_string(char *str);
-char			*ft_ptr(char *str);
+char			*ft_char(t_data *data);
+char			*ft_string(t_data *data);
+char			*ft_ptr(t_data *data);
 #endif

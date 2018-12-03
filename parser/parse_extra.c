@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/02 18:07:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 12:30:27 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_is_betw(char c)
 
 void	ft_count_conv(t_data *data, t_list **begin_list)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	int		i;
 
 	i = 0;

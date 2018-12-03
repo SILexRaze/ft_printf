@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 12:18:32 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 14:02:33 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 
 int		main(int ac, char **av)
 {
-	if (ac > 1)
-	{
-		ft_printf("%24s");
-		ft_printf("%.023c");
-		ft_printf("%p");
-	}
+	ft_printf("%24s", "va");
+	(void)ac;
 	(void)av;
 	return (0);
 }

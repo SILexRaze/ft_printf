@@ -15,7 +15,7 @@ PARTIE OBLIGATOIRE
     %X affichera une valeur décimale en héxadécimal (lettres en majuscules)
         + flag hh, h, l, ll
 
-    %f affichera une valeur décimale à virgule 
+    %f affichera une valeur décimale à virgule (double)
         + flag l et L
 
     %% affichera le %
