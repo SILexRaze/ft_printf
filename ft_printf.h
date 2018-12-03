@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 11:41:35 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 12:18:14 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct	s_flag
 	int			space;
 }				t_flag;
 
+typedef struct	s_parser
+{
+	int			s;
+	int			j;
+	char		*tmp;
+}				t_parser;
+
 typedef struct	s_data
 {
 	char		**d_flags;
@@ -42,6 +49,7 @@ typedef struct	s_data
 	int			f_width;
 	int			accu;
 	t_flag		*flags;
+	t_parser	*prs;
 }				t_data;
 /*
 ** PARSER
@@ -56,10 +64,8 @@ void			ft_count_conv(t_data *data, t_list **begin_list);
 /*
 ** LST_PUSH
 */
-void			ft_lst_push_txt(t_data *data, t_list **begin_list, int start,
-					int j);
-void			ft_lst_push_flag(t_data *data, t_list **begin_list, int start,
-					int j);
+void			ft_lst_push_txt(t_data *data, t_list **begin_list);
+void			ft_lst_push_flag(t_data *data, t_list **begin_list);
 void			ft_main_parsing(t_data *data, t_list **lst);
 /*
 ** LE RESTE
