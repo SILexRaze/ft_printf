@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 15:53:33 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 17:17:56 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ char	*ft_maxhex(t_data *data)
 char	*ft_ptr(t_data *data)
 {
 	return (ft_putaddr_to_str((long long)va_arg(data->ap, long long)));
+}
+
+char	*ft_int(t_data *data)
+{
+	return (ft_itoa(va_arg(data->ap, int)));
 }

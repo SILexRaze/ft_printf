@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 15:50:47 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 17:46:40 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void			ft_main_parsing(t_data *data, t_list **lst);
 */
 int				ft_printf(const char *restrict format, ...);
 t_data			*ft_dispatch(t_data *data);
+int				ft_abs(int nb);
 /*
 ** Fonctions d'exec
 */
@@ -79,7 +80,10 @@ char			*ft_minhex(t_data *data);
 char			*ft_maxhex(t_data *data);
 char			*ft_float(t_data *data);
 char			*ft_ptr(t_data *data);
+char			*ft_int(t_data *data);
 
+
+void			ft_f_width(t_data *data);
 char			*ft_itoa_base_lower(int value, int base);
 char			*ft_itoa_base(int value, int base);
 char			*ft_double_to_array(long double value, int p);

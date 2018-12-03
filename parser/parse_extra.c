@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 12:30:27 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 17:30:48 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,11 @@ void	ft_count_conv(t_data *data, t_list **begin_list)
 		tmp = tmp->next;
 	}
 	data->nb_flag = i;
+}
+
+int		ft_abs(int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	return (nb);
 }
