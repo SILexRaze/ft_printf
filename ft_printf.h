@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 17:46:40 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 21:16:57 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct	s_data
 {
 	char		*fmt;
 	int			nb_flag;
-	int			n;
 	int			f_width;
 	int			accu;
 	t_flag		*flags;
@@ -82,9 +81,9 @@ char			*ft_float(t_data *data);
 char			*ft_ptr(t_data *data);
 char			*ft_int(t_data *data);
 
-
-void			ft_f_width(t_data *data);
-char			*ft_itoa_base_lower(int value, int base);
+void			ft_lst_clear(t_list **begin_list);
+void			ft_f_width(t_data *data, int size);
+char			*ft_itoa_bl(int value, int base);
 char			*ft_itoa_base(int value, int base);
 char			*ft_double_to_array(long double value, int p);
 char			*ft_putaddr_to_str(long long value);

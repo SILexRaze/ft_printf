@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/03 17:32:24 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/03 21:18:11 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS		=		main.c						\
 					exec/ft_multiple_itoa.c		\
 					exec/ft_dioufper.c			\
 					exec/ft_putaddr.c			\
-					exec/ft_f_width.c
+					exec/ft_f_width.c			\
+					parser/ft_lst_clear.c
 INCLUDES	=		libft/
 OBJ			=		$(SRCS:.c=.o)
 # NE PAS OUBLIER DE RAJOUTER LES FLAGS

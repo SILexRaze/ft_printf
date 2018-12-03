@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:13:01 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 16:20:19 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 21:17:31 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_printf(const char *format, ...)
 	lst = NULL;
 	va_start(data->ap, format);
 	ft_main_parsing(data, &lst);
+	ft_lst_clear(&lst);
 	ft_print_list(&lst);
 	va_end(data->ap);
 	return (1);

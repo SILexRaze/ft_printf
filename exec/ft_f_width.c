@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:21:15 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 17:36:17 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/03 21:41:23 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_f_width(t_data *data)
+void	ft_f_width(t_data *data, int size)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ void	ft_f_width(t_data *data)
 	{
 		if (data->flags->minus == 1)
 		{
-			while (data->f_width != 0)
+			while (data->f_width - size > 0)
 			{
 				data->prs->tmp = ft_strdjoin(data->prs->tmp, " ");
 				data->f_width--;
@@ -29,7 +29,7 @@ void	ft_f_width(t_data *data)
 		}
 		else
 		{
-			while (data->f_width != 0)
+			while (data->f_width - size > 0)
 			{
 				data->prs->tmp = ft_strjoin(" ", data->prs->tmp);
 				data->f_width--;

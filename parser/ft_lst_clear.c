@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatcher.c                                       :+:      :+:    :+:   */
+/*   ft_lst_clear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 20:54:38 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/03 21:06:42 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/03 21:33:53 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-char	*(*g_tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-									ft_float, ft_ptr, ft_int};
-
-t_data	*ft_dispatch(t_data *data)
+void	ft_lst_clear(t_list **begin_list)
 {
-	char	*db;
+	t_list	*tmp;
+	char	*t;
 	int		i;
-	int		len;
+	int		s;
 
-	len = ft_strlen(data->prs->tmp) - 1;
-	i = 0;
-	db = "csxXfpidou%";
-	while (db[i])
+	t = NULL;
+	s = -1;
+	tmp = *begin_list;
+	while (tmp)
 	{
-		if ((data->prs->tmp)[len] == db[i])
-			break ;
-		i++;
+		if (tmp->isflag == 1)
+		{
+			i = -1;
+			t = (char *)tmp->data;
+			while (t[++i])
+			{
+				if (t[i] == '%' && s == -1)
+					s = i;
+				if (ft_isconv(t[i]))
+					break ;
+			}
+		tmp->data = ft_strdjoin(ft_strsub(t, 0, (size_t)s), t + i + 1);
+		}
+		tmp = tmp->next;
 	}
-	data->prs->tmp = (g_tab[i])(data);
-	return (data);
 }
+
