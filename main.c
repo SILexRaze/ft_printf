@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 14:01:46 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 14:41:35 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ int		main(int ac, char **av)
 	c = "salut";
 
 	ft_printf("%-10s\n", c);
-	ft_printf("%0000000000000010s\n", c);
-	ft_printf("0.125\t\t|\t%f\n", 14527.98723548);
-	printf("0.125\t\t|\t%.20f\n",14527.98723548);
-/*	ft_printf("'a'\t\t|\t%10c\nsalut\"\t\t|\t%.10s\n", 'a', "salut");
-	ft_printf("255\t\t|\t%x\n", 255);
-	ft_printf("255\t\t|\t%X\n", 255);
-	ft_printf("0x*\t\t|\t%p\n", c);
-	ft_printf("125\t\t|\t%i\n", 125);*/
+	ft_printf("%------0000000000000010s\n", c);
+	ft_printf("%-10x\n", 255);
+	ft_printf("%010x\n", 255);
+	ft_printf("%-10X\n", 255);
+	ft_printf("%010X\n", 255);
+	ft_printf("%-50p\n", c);
+	ft_printf("%050p\n", c);
+	ft_printf("%-50i\n", 125);
+	ft_printf("%050i\n", 125);
+	ft_printf("%-50f\n", 14527.98723548);
+	ft_printf("%050f\n", 14527.98723548);
 	(void)ac;
 	(void)av;
 	return (0);

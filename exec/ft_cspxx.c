@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:03:05 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 14:28:25 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ char	*ft_string(t_data *data)
 
 char	*ft_minhex(t_data *data)
 {
-	return (ft_strdjoin(data->prs->tmp, ft_itoa_bl(va_arg(data->ap, int), 16)));
+	int		t;
+
+	t = va_arg(data->ap, int);
+	data->prs->tmp = ft_strdjoin(data->prs->tmp, ft_itoa_bl(t, 16));
+	ft_f_width(data, ft_strlen(ft_itoa_bl(t, 16)));
+	return (data->prs->tmp);
 }
 
 char	*ft_maxhex(t_data *data)
@@ -50,7 +55,9 @@ char	*ft_maxhex(t_data *data)
 	int	t;
 
 	t = va_arg(data->ap, int);
-	return (ft_strdjoin(data->prs->tmp, ft_itoa_base(t, 16)));
+	data->prs->tmp = ft_strdjoin(data->prs->tmp, ft_itoa_base(t, 16));
+	ft_f_width(data, ft_strlen(ft_itoa_base(t, 16)));
+	return (data->prs->tmp);
 }
 
 char	*ft_ptr(t_data *data)
@@ -58,5 +65,7 @@ char	*ft_ptr(t_data *data)
 	long long	t;
 
 	t = va_arg(data->ap, long long);
-	return (ft_strdjoin(data->prs->tmp, ft_putaddr_to_str(t)));
+	data->prs->tmp = ft_strdjoin(data->prs->tmp, ft_putaddr_to_str(t));
+	ft_f_width(data, ft_strlen(ft_putaddr_to_str(t)));
+	return (data->prs->tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 12:47:02 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 14:35:43 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void			ft_lst_clear(t_list **begin_list);
 void			ft_f_width(t_data *data, int size);
 char			*ft_itoa_bl(int value, int base);
 char			*ft_itoa_base(int value, int base);
-char			*ft_double_to_array(long double value, int p);
+char			*ft_dtoa(long double value, int p);
 void			ft_round(char **str);
 char			*ft_putaddr_to_str(long long value);
 #endif

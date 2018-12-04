@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 12:54:28 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 14:35:31 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ size_t		ft_nbr_len(long double value, int *p)
 	return (i);
 }
 
-char		*ft_double_to_array(long double value, int p)
+char		*ft_dtoa(long double value, int p)
 {
 	char	*dst;
 	int		n;
