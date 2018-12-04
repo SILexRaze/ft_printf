@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/04 23:17:56 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/04 23:26:15 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ $(OBJDIR)%.o: %.c
 	@$(CC) -c $< -o $@
 
 dir:
-	@echo "$(_YELLOW)$(_UNDER)Making directories for objects files :$(_END)\n"
+	@echo "\n$(_YELLOW)$(_UNDER)Making directories for objects files :$(_END)\n"
 	mkdir $(OBJDIR)
 	mkdir $(OBJDIR)exec
 	mkdir $(OBJDIR)parser
