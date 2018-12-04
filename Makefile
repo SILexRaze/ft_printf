@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/04 12:46:20 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/04 23:17:56 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS		=		main.c						\
 					exec/ft_f_width.c			\
 					parser/ft_lst_clear.c
 INCLUDES	=		libft/
-OBJ			=		$(SRCS:.c=.o)
+OBJDIR		=		obj/
+OBJ			=		$(addprefix $(OBJDIR), $(SRCS:.c=.o))
 # NE PAS OUBLIER DE RAJOUTER LES FLAGS
 CC			=		gcc -Wall -Wextra -Werror -fsanitize=address
 NAME		=		ft_printf
@@ -44,7 +45,7 @@ _REV=$'\x1b[7m$'
 
 all:	$(NAME)
 
-$(NAME): pbstart $(OBJ) pbstop
+$(NAME): dir pbstart $(OBJ) pbstop
 	@make -C libft/
 	@$(CC) $(OBJ) -o $(NAME) -I $(INCLUDES) -L libft/ -lft
 	@echo "$(_WHITE)$(NAME)\t$(_GREEN)[OK]$(_END)"
@@ -54,15 +55,21 @@ pbstart:
 	@/bin/echo -n "0% ["
 
 pbstop:
-	@/bin/echo "] 100%"
-	@echo "\n"
+	@echo "] 100%\n"
 
-%.o:%.c
+$(OBJDIR)%.o: %.c
 	@/bin/echo -n "#"
 	@$(CC) -c $< -o $@
 
+dir:
+	@echo "$(_YELLOW)$(_UNDER)Making directories for objects files :$(_END)\n"
+	mkdir $(OBJDIR)
+	mkdir $(OBJDIR)exec
+	mkdir $(OBJDIR)parser
+	@echo ""
+
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJDIR)
 	@make clean -C libft/
 
 fclean:	clean

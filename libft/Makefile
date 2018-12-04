@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/03 13:48:54 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/04 23:18:30 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ all:	$(NAME)
 $(NAME): pbstart $(OBJ) pbstop
 	@$(CC) -I ./libft.h -c $(SRCS)
 	@ar rcs $(NAME) $(OBJ)
-	@echo "$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
+	@echo "\n$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
 
 pbstart:
 	@echo "$(_YELLOW)$(_UNDER)Compiling $(_BOLD)$(NAME) :$(_END)$(_WHITE)\t$(CC)\n"
