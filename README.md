@@ -27,7 +27,7 @@ PARTIE OBLIGATOIRE
     Gestion de la precision (?)
 	
 
-	NE PAS OUBLIER D'ENLEVER L'OPTION ```-fsanitize=address``` dans le ```Makefile```
+	NE PAS OUBLIER D'ENLEVER L'OPTION -fsanitize=address
 
 BONUS
 
