@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 12:30:06 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 14:02:03 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_float(t_data *data)
 	double	t;
 
 	t = va_arg(data->ap, double);
-	return (ft_strdjoin(data->prs->tmp, ft_double_to_array(t, 0)));
+	return (ft_strdjoin(data->prs->tmp, ft_double_to_array(t, 20)));
 }
 
 char	*ft_int(t_data *data)

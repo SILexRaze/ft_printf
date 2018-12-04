@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 12:36:28 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 12:49:34 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 13:59:41 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@ void	ft_round(char **str)
 	int len;
 
 	len = ft_strlen(*str) - 1;
-	while ((*str)[len] == '9')
+	while ((*str)[len] == '9' && len > 0)
 	{
 		(*str)[len] = '0';
 		len--;
 		if ((*str)[len] == '.')
 			len--;
 	}
-	(*str)[len]++;
+	if (len == 0)
+	{
+		(*str)[len] = '0';
+		*str = ft_strjoin("1", *str);
+	}
+	else
+		(*str)[len]++;
 }

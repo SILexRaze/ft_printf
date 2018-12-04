@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 12:30:35 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 14:01:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		main(int ac, char **av)
 
 	ft_printf("%-10s\n", c);
 	ft_printf("%0000000000000010s\n", c);
-	ft_printf("0.125\t\t|\t%f\n", 0.123);
-	printf("0.125\t\t|\t%f\n", 0.123);
+	ft_printf("0.125\t\t|\t%f\n", 14527.98723548);
+	printf("0.125\t\t|\t%.20f\n",14527.98723548);
 /*	ft_printf("'a'\t\t|\t%10c\nsalut\"\t\t|\t%.10s\n", 'a', "salut");
 	ft_printf("255\t\t|\t%x\n", 255);
 	ft_printf("255\t\t|\t%X\n", 255);
