@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/04 23:26:15 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/05 00:02:13 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ SRCS		=		main.c						\
 					parser/parser.c				\
 					parser/fmt_to_lst.c			\
 					parser/parse_extra.c		\
-					exec/ft_cspxx.c				\
-					exec/ft_multiple_itoa.c		\
-					exec/ft_dioufper.c			\
-					exec/ft_putaddr.c			\
-					exec/ft_round.c				\
-					exec/ft_f_width.c			\
-					parser/ft_lst_clear.c
+					parser/ft_lst_clear.c		\
+					conv/ft_cspxx.c				\
+					conv/ft_multiple_itoa.c		\
+					conv/ft_dioufper.c			\
+					conv/ft_putaddr.c			\
+					conv/ft_round.c				\
+					conv/ft_f_width.c
 INCLUDES	=		libft/
 OBJDIR		=		obj/
 OBJ			=		$(addprefix $(OBJDIR), $(SRCS:.c=.o))
@@ -64,7 +64,7 @@ $(OBJDIR)%.o: %.c
 dir:
 	@echo "\n$(_YELLOW)$(_UNDER)Making directories for objects files :$(_END)\n"
 	mkdir $(OBJDIR)
-	mkdir $(OBJDIR)exec
+	mkdir $(OBJDIR)conv
 	mkdir $(OBJDIR)parser
 	@echo ""
 

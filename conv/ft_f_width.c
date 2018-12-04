@@ -6,12 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:21:15 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 14:51:00 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 23:55:25 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include <stdio.h>
+
 void	ft_f_width(t_data *data, int size)
 {
 	int		i;

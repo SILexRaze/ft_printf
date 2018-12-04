@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 21:48:54 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 23:55:11 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int		main(int ac, char **av)
 {
@@ -20,7 +19,7 @@ int		main(int ac, char **av)
 	c = "salut";
 
 //	ft_printf("%10X\n", 255);
-	ft_printf("%20s\n%010X\n%--10x\n", c, 255, 255);
+	ft_printf("%0020s\n%--010X\n%+x\n", c, 255, 255);
 //	ft_printf("%010X\n", 255);
 //	ft_printf("%-50p\n", c);
 //	ft_printf("%050p\n", c);

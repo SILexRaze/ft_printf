@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:13:01 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:17:31 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 23:55:05 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int		ft_printf(const char *format, ...)
 {
