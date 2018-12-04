@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dioufper.c                                      :+:      :+:    :+:   */
+/*   ft_round.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 12:30:06 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/04 12:36:28 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/04 12:49:34 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_float(t_data *data)
+void	ft_round(char **str)
 {
-	double	t;
+	int len;
 
-	t = va_arg(data->ap, double);
-	return (ft_strdjoin(data->prs->tmp, ft_double_to_array(t, 0)));
-}
-
-char	*ft_int(t_data *data)
-{
-	int	t;
-
-	t = va_arg(data->ap, int);
-	return (ft_strdjoin(data->prs->tmp, ft_itoa(t)));
+	len = ft_strlen(*str) - 1;
+	while ((*str)[len] == '9')
+	{
+		(*str)[len] = '0';
+		len--;
+		if ((*str)[len] == '.')
+			len--;
+	}
+	(*str)[len]++;
 }

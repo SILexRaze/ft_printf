@@ -6,12 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 20:33:06 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 12:54:28 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
+#include <stdio.h>
 char	*ft_itoa_base(int value, int base)
 {
 	char	*s;
@@ -97,16 +97,16 @@ char		*ft_double_to_array(long double value, int p)
 	dst[i++] = '.';
 	value -= (double)n;
 	value = (value < 0 ? -value : value);
-	while (p != 0)
+	while (p > 0)
 	{
+		n =(int)(value * 10);
 		value *= 10;
-		n = (int)value;
 		dst[i] = n + '0';
 		value -= (double)n;
 		p--;
 		i++;
 	}
-	if ((value * 10) >= 5)
-		dst[--i]++;
+	if ((int)(value * 10) >= 5)
+		ft_round(&dst);
 	return (dst);
 }
