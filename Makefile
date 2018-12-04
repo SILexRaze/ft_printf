@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/05 00:02:13 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/05 00:06:10 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,11 @@ SRCS		=		main.c						\
 INCLUDES	=		libft/
 OBJDIR		=		obj/
 OBJ			=		$(addprefix $(OBJDIR), $(SRCS:.c=.o))
-# NE PAS OUBLIER DE RAJOUTER LES FLAGS
+
+# NE PAS OUBLIER D'ENLEVER FSANITIZESAMERE
 CC			=		gcc -Wall -Wextra -Werror -fsanitize=address
+
+
 NAME		=		ft_printf
 
 _BOLD=$'\x1b[1m$'
