@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:21:15 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:41:23 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 00:37:49 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	ft_f_width(t_data *data, int size)
 {
-	int	i;
+	int		i;
+	char	*s;
 
+	if (data->flags->zero == 1)
+		s = "0";
+	else
+		s = " ";
 	i = 0;
 	if (data->f_width != 0)
 	{
@@ -23,7 +28,7 @@ void	ft_f_width(t_data *data, int size)
 		{
 			while (data->f_width - size > 0)
 			{
-				data->prs->tmp = ft_strdjoin(data->prs->tmp, " ");
+				data->prs->tmp = ft_strdjoin(data->prs->tmp, s);
 				data->f_width--;
 			}
 		}
@@ -31,7 +36,7 @@ void	ft_f_width(t_data *data, int size)
 		{
 			while (data->f_width - size > 0)
 			{
-				data->prs->tmp = ft_strjoin(" ", data->prs->tmp);
+				data->prs->tmp = ft_strjoin(s, data->prs->tmp);
 				data->f_width--;
 			}
 		}

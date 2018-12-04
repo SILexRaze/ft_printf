@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:44:38 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 00:46:26 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list)
 		data->f_width = -1;
 		ft_parse_width_accu(data->prs->tmp, data);
 		data->flags = ft_parse_flag(data->prs->tmp, data);
-//		printf("\n0=%d / +=%d / -=%d / #=%d /  =%d\n", data->flags->zero, data->flags->plus, data->flags->minus, data->flags->hash, data->flags->space);
+		printf("\n0=%d / +=%d / -=%d / #=%d /  =%d\n", data->flags->zero, data->flags->plus, data->flags->minus, data->flags->hash, data->flags->space);
 //		printf("tmp=\t\t%s\nf_width=\t%d\naccu=\t\t%d\n", data->prs->tmp, data->f_width, data->accu);
 		data = ft_dispatch(data);
 		ft_list_pushback(begin_list, (void *)ft_strdup(data->prs->tmp), 1);

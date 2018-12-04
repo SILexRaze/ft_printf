@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:16:57 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 01:04:35 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct	s_parser
 typedef struct	s_data
 {
 	char		*fmt;
-	int			nb_flag;
 	int			f_width;
 	int			accu;
 	t_flag		*flags;
@@ -57,7 +56,7 @@ int				ft_is_univ_flag(char c);
 int				ft_is_betw(char c);
 t_flag			*ft_parse_flag(char *str, t_data *data);
 void			ft_parse_width_accu(char *str, t_data *data);
-void			ft_count_conv(t_data *data, t_list **begin_list);
+int				ft_is_zero(char *str, int i);
 /*
 ** LST_PUSH
 */

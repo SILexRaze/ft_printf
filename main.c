@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:44:21 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 01:02:37 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		main(int ac, char **av)
 	c = "salut";
 
 	ft_printf("%-10s\n", c);
+	ft_printf("%0000000000000010s\n", c);
 /*	ft_printf("'a'\t\t|\t%10c\nsalut\"\t\t|\t%.10s\n", 'a', "salut");
 	ft_printf("255\t\t|\t%x\n", 255);
 	ft_printf("255\t\t|\t%X\n", 255);

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 17:30:48 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 01:03:51 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,16 @@ int		ft_is_betw(char c)
 	return (0);
 }
 
-void	ft_count_conv(t_data *data, t_list **begin_list)
+int		ft_is_zero(char *str, int i)
 {
-	t_list	*tmp;
-	int		i;
-
-	i = 0;
-	tmp = *begin_list;
-	while (tmp)
+	while (str[i] != '%')
 	{
-		if (tmp->isflag == 1)
-			i++;
-		tmp = tmp->next;
+		if (str[i] != '0')
+			return (0);
+		i--;
 	}
-	data->nb_flag = i;
+	return (1);
 }
-
 int		ft_abs(int nb)
 {
 	if (nb < 0)

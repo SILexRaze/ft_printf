@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 21:44:08 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/04 01:04:26 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ t_flag	*ft_parse_flag(char *str, t_data *data)
 		{
 			if (str[i] == f_base[j])
 			{
-				if (str[i] == '0' && !(str[i - 1] <= '9' || str[i] >= '0'))
+				if (j == 1 && ft_is_zero(str, i))
 					*((int*)data->flags + j) = 1;
-				else if (str[i] != '0')
+				else if (j != 1)
 					*((int*)data->flags + j) = 1;
 			}
 			i++;
@@ -70,5 +70,4 @@ void	ft_main_parsing(t_data *data, t_list **lst)
 
 	i = 0;
 	*lst = ft_lst_parse_flags(data, lst);
-	ft_count_conv(data, lst);
 }
