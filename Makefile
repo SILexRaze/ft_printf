@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/05 14:52:54 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/05 18:55:42 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS		=		main.c						\
 					conv/ft_dioufper.c			\
 					conv/ft_putaddr.c			\
 					conv/ft_round.c				\
+					conv/ft_utoa.c				\
 					conv/ft_format.c
 SRC			=		$(addprefix src/, $(SRCS))
 LIBFT		=		src/libft/

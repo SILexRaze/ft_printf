@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 15:10:58 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/05 18:46:51 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_f_width(t_data *data, int size)
 				data->prs->tmp = ft_strjoin(s, data->prs->tmp);
 				data->f_width--;
 			}
-			printf("|%s|\n", data->prs->tmp);
 		}
 	}
 }
@@ -62,4 +61,20 @@ void	ft_accuracy(t_data *data)
 		i++;
 	}
 	data->prs->tmp = ft_strdup(tmp);
+}
+
+void	ft_accu_int(t_data *data)
+{
+	char	*zero;
+	size_t	len;
+
+	len = ft_strlen(data->prs->tmp);
+	if (len < (size_t)data->accu)
+	{
+		if (!(zero = ft_strnew(data->accu)))
+			exit (0);
+		ft_memset((void*)zero, 48, data->accu - len);
+		if (!(data->prs->tmp = ft_strdjoin(zero, data->prs->tmp)))
+			exit (0);
+	}
 }

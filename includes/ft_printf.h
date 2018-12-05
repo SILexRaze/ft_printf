@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 14:59:51 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/05 18:59:20 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void			ft_main_parsing(t_data *data, t_list **lst);
 int				ft_printf(const char *restrict format, ...);
 int				ft_abs(int nb);
 t_data			*ft_dispatch(t_data *data);
+void			ft_str_clear(t_data *data);
 /*
 **	Fonctions d'execution
 */
@@ -70,8 +71,10 @@ char			*ft_maxhex(t_data *data);
 char			*ft_float(t_data *data);
 char			*ft_ptr(t_data *data);
 char			*ft_int(t_data *data);
+char			*ft_usgd(t_data *data);
 void			ft_f_width(t_data *data, int size);
-void			ft_accuracy(t_data *dat);
+void			ft_accuracy(t_data *data);
+void			ft_accu_int(t_data *data);
 /*
 **	Fonctions de conversion
 */
@@ -79,5 +82,6 @@ char			*ft_itoa_bl(int value, int base);
 char			*ft_itoa_base(int value, int base);
 char			*ft_dtoa(long double value, int p);
 char			*ft_putaddr_to_str(long long value);
+char			*ft_utoa(unsigned long n);
 void			ft_round(char **str);
 #endif
