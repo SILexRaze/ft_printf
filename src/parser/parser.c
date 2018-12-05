@@ -6,11 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 01:04:26 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/05 14:51:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 t_flag	*ft_parse_flag(char *str, t_data *data)
 {
@@ -55,10 +55,10 @@ void	ft_parse_width_accu(char *str, t_data *data)
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 		{
-			if (data->accu == -1)
-				data->f_width = ft_abs(ft_atoi(str + i - 1));
-			else if (str[i - 1] == '.')
+			if (str[i - 1] == '.')
 				data->accu = ft_abs(ft_atoi(str + i));
+			else
+				data->f_width = ft_abs(ft_atoi(str + i - 1));
 		}
 		i++;
 	}

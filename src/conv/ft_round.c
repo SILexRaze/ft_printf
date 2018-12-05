@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatcher.c                                       :+:      :+:    :+:   */
+/*   ft_round.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/03 20:54:38 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/04 12:36:28 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/05 14:34:09 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*(*g_tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-									ft_float, ft_ptr, ft_int};
-
-t_data	*ft_dispatch(t_data *data)
+void	ft_round(char **str)
 {
-	char	*db;
-	int		i;
-	int		len;
+	int len;
 
-	len = ft_strlen(data->prs->tmp) - 1;
-	i = 0;
-	db = "csxXfpidou%";
-	while (db[i])
+	len = ft_strlen(*str) - 1;
+	while ((*str)[len] == '9' && len > 0)
 	{
-		if ((data->prs->tmp)[len] == db[i])
-			break ;
-		i++;
+		(*str)[len] = '0';
+		len--;
+		if ((*str)[len] == '.')
+			len--;
 	}
-	data->prs->tmp = (g_tab[i])(data);
-	return (data);
+	if (len == 0)
+	{
+		(*str)[len] = '0';
+		*str = ft_strjoin("1", *str);
+	}
+	else
+		(*str)[len]++;
 }

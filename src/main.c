@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_round.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 12:36:28 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 13:59:41 by vifonne          ###   ########.fr       */
+/*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/05 15:00:38 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
-void	ft_round(char **str)
+int		main(int ac, char **av)
 {
-	int len;
+	char	*c;
 
-	len = ft_strlen(*str) - 1;
-	while ((*str)[len] == '9' && len > 0)
-	{
-		(*str)[len] = '0';
-		len--;
-		if ((*str)[len] == '.')
-			len--;
-	}
-	if (len == 0)
-	{
-		(*str)[len] = '0';
-		*str = ft_strjoin("1", *str);
-	}
-	else
-		(*str)[len]++;
+	c = "salut";
+
+	ft_printf("%10.2s\n", "salut");
+	printf("%10.2s\n", "salut");
+//	ft_printf("%-50p\n", c);
+//	ft_printf("%050p\n", c);
+///	ft_printf("%-50i\n", 125);
+//	ft_printf("%050i\n", 125);
+//	ft_printf("%-50f\n", 14527.98723548);
+//	ft_printf("%050f\n", 14527.98723548);
+	(void)ac;
+	(void)av;
+	return (0);
 }

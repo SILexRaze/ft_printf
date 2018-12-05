@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 00:05:40 by vifonne          ###   ########.fr       */
+/*   Created: 2018/11/27 15:13:01 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/05 15:12:26 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(int ac, char **av)
+int		ft_printf(const char *format, ...)
 {
-	char	*c;
+	t_list	*lst;
+	t_data	*data;
 
-	c = "salut";
-
-//	ft_printf("%10X\n", 255);
-	ft_printf("%0020s\n%--010X\n%+x\n", c, 255, 255);
-//	ft_printf("%010X\n", 255);
-//	ft_printf("%-50p\n", c);
-//	ft_printf("%050p\n", c);
-///	ft_printf("%-50i\n", 125);
-//	ft_printf("%050i\n", 125);
-//	ft_printf("%-50f\n", 14527.98723548);
-//	ft_printf("%050f\n", 14527.98723548);
-	(void)ac;
-	(void)av;
-	return (0);
+	if (!(data = (t_data *)malloc(sizeof(t_data))))
+		return (0);
+	data->fmt = (char *)format;
+	if (!(data->prs = (t_parser *)malloc(sizeof(t_parser))))
+		return (0);
+	lst = NULL;
+	va_start(data->ap, format);
+	ft_main_parsing(data, &lst);
+	ft_print_list(&lst);
+	va_end(data->ap);
+	return (1);
 }

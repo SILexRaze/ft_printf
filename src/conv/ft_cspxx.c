@@ -6,11 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 14:28:25 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/05 15:11:05 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
 char	*ft_char(t_data *data)
 {
@@ -36,6 +37,7 @@ char	*ft_string(t_data *data)
 		i++;
 	if ((data->prs->tmp)[i] == 's')
 		data->prs->tmp = ft_strdjoin(data->prs->tmp, t);
+	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(t));
 	return (data->prs->tmp);
 }

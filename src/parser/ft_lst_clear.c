@@ -6,11 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 21:06:42 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/04 21:37:23 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/05 15:14:36 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_lst_clear(t_list **begin_list)
 {

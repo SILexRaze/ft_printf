@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/05 00:06:10 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/05 14:52:54 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,35 +22,25 @@ SRCS		=		main.c						\
 					conv/ft_dioufper.c			\
 					conv/ft_putaddr.c			\
 					conv/ft_round.c				\
-					conv/ft_f_width.c
-INCLUDES	=		libft/
-OBJDIR		=		obj/
-OBJ			=		$(addprefix $(OBJDIR), $(SRCS:.c=.o))
-
-# NE PAS OUBLIER D'ENLEVER FSANITIZESAMERE
-CC			=		gcc -Wall -Wextra -Werror -fsanitize=address
-
-
+					conv/ft_format.c
+SRC			=		$(addprefix src/, $(SRCS))
+LIBFT		=		src/libft/
+OBJ			=		$(addprefix obj/, $(SRC:.c=.o))
+CC			=		gcc -Wall -Wextra -Werror
+CCF			=		gcc -Wall -Wextra -Werror -fsanitize=address
 NAME		=		ft_printf
-
-_BOLD=$'\x1b[1m$'
+.PHONY		=		all $(NAME) pbstart pbstop $(OBJ) dir clean fclean re
 _UNDER=$'\x1b[4m$'
-_GREY=$'\x1b[30m$'
-_RED=$'\x1b[31m$'
 _GREEN=$'\x1b[32m$'
 _YELLOW=$'\x1b[33m$'
-_BLUE=$'\x1b[34m$'
-_PURPLE=$'\x1b[35m$'
-_CYAN=$'\x1b[36m$'
 _WHITE=$'\x1b[37m$'
 _END=$'\x1b[0m$'
-_REV=$'\x1b[7m$'
 
 all:	$(NAME)
 
-$(NAME): dir pbstart $(OBJ) pbstop
-	@make -C libft/
-	@$(CC) $(OBJ) -o $(NAME) -I $(INCLUDES) -L libft/ -lft
+$(NAME): dir pbstart $(OBJ) pbstop 
+	@make -C $(LIBFT)
+	@$(CCF) $(OBJ) -o $(NAME) -I $(LIBFT) -I includes/ -L src/libft/ -lft
 	@echo "$(_WHITE)$(NAME)\t$(_GREEN)[OK]$(_END)"
 
 pbstart:
@@ -60,23 +50,22 @@ pbstart:
 pbstop:
 	@echo "] 100%\n"
 
-$(OBJDIR)%.o: %.c
+obj/%.o: %.c
 	@/bin/echo -n "#"
-	@$(CC) -c $< -o $@
+	@$(CC) -I $(LIBFT) -I includes/ -c $< -o $@
 
 dir:
 	@echo "\n$(_YELLOW)$(_UNDER)Making directories for objects files :$(_END)\n"
-	mkdir $(OBJDIR)
-	mkdir $(OBJDIR)conv
-	mkdir $(OBJDIR)parser
+	mkdir -p obj/src/conv
+	mkdir -p obj/src/parser
 	@echo ""
 
 clean:
 	@rm -rf $(OBJDIR)
-	@make clean -C libft/
+	@make clean -C $(LIBFT)
 
 fclean:	clean
 	@rm -f $(NAME)
-	@make fclean -C libft/
+	@make fclean -C $(LIBFT)
 
 re:	fclean all
