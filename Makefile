@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/05 18:55:42 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/05 19:12:27 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ dir:
 	@echo ""
 
 clean:
-	@rm -rf $(OBJDIR)
+	@rm -rf obj/
 	@make clean -C $(LIBFT)
 
 fclean:	clean
