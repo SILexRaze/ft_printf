@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 01:19:22 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:19:12 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_lst_push_txt(t_data *data, t_list **begin_list)
 	int	sub;
 
 	sub = data->prs->j - data->prs->s;
+	printf("%d\n", sub);
 	if (sub > 0)
 	{
 		if (!(data->prs->tmp = ft_strsub(data->fmt, data->prs->s, sub)))

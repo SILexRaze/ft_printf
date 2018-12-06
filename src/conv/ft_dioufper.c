@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 12:28:06 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:04:18 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ char	*ft_oct(t_data *data)
 	data->prs->tmp = ft_itoa_base(t, 8);
 	ft_accu_int(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
+	return (data->prs->tmp);
+}
+
+char	*ft_per(t_data *data)
+{
 	return (data->prs->tmp);
 }

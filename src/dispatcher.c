@@ -6,14 +6,15 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 12:22:29 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 15:14:26 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 char	*(*g_tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-	ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct};
+	ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_per};
 
 void	ft_str_clear(t_data *data)
 {
