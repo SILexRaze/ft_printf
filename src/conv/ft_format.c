@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 18:46:51 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:24:00 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ void	ft_accu_int(t_data *data)
 	char	*zero;
 	size_t	len;
 
+	if (!(zero = ft_strnew(0)))
+		exit(0);
 	len = ft_strlen(data->prs->tmp);
-	if (len < (size_t)data->accu)
+	if (data->accu > -1 && len < (size_t)data->accu)
 	{
 		if (!(zero = ft_strnew(data->accu)))
 			exit (0);

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 19:04:20 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:18:16 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int		main(int ac, char **av)
 //	ft_printf("%10.5p\n", c);
 //	printf("%10.5p\n", c);
 //	ft_printf("%050p\n", c);
-	ft_printf("m=%10.5i\n", 1);
-	printf("p=%10.5i\n", 1);
+//	ft_printf("m=%10.5i\n", 1);
+//	printf("p=%10.5i\n", 1);
 	ft_printf("m=%u\n", 1);
 	printf("p=%u\n", 1);
 //	ft_printf("%50.5f\n", 14527.98723548);

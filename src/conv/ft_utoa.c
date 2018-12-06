@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 18:49:44 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 19:02:28 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:25:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char			*ft_utoa(unsigned long n)
 	unsigned long long	nbr;
 	size_t				tmp;
 
-	printf("||\n");
 	nbr = (unsigned long long)n;
 	i = ft_nlen(n);
 	tmp = i;

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 19:05:08 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:18:50 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 char	*(*g_tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-	ft_float, ft_ptr, ft_int, ft_int, ft_usgd};
+	ft_float, ft_ptr, ft_int, ft_usgd};
 
 void	ft_str_clear(t_data *data)
 {
@@ -44,7 +44,7 @@ t_data	*ft_dispatch(t_data *data)
 
 	len = ft_strlen(data->prs->tmp) - 1;
 	i = 0;
-	db = "csxXfpiduo%";
+	db = "csxXfpiudo%";
 	while (db[i])
 	{
 		if ((data->prs->tmp)[len] == db[i])
