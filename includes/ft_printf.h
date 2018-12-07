@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 15:00:57 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/06 20:06:10 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char			*ft_int(t_data *data);
 char			*ft_usgd(t_data *data);
 char			*ft_oct(t_data *data);
 char			*ft_per(t_data *data);
+char			*ft_bin(t_data *data);
 void			ft_f_width(t_data *data, int size);
 void			ft_accuracy(t_data *data);
 void			ft_accu_int(t_data *data);
