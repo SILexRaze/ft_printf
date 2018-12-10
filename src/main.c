@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/07 23:40:11 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/10 15:20:40 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,23 @@ int		main(int ac, char **av)
 	printf("p%10p\n", c);
 	ft_printf("m%10.5p\n", c);
 	ft_printf("m=%10.5i\n", 1);
-	printf("p=%10.5i\n", 1);*/
-//	printf("p=%o\n", 10);
-//	ft_printf("m=%o\n", 10);
-//	printf("p=%b\n", 10);
+	printf("p=%10.5i\n", 1);
+	printf("p=%o\n", 10);
+	ft_printf("m=%o\n", 10);
+	printf("p=%b\n", 10);
 	ft_printf("m=%b\n", 10);
 	ft_printf("m=%b\n", 0);
 	ft_printf("m=%b\n", 2);
 	ft_printf("m=%b\n", 4);
-//	ft_printf("%50.5f\n", 14527.98723548);
-//	printf("%50.5f\n", 14527.98723548);
+	ft_printf("%50.5f\n", 14527.98723548);
+	printf("%50.5f\n", 14527.98723548);*/
+	ft_printf("m=%+d\n", -300);
+	printf("p=%+d\n", -300);
+	ft_printf("m=%+d\n", 300);
+	printf("p=%+d\n", 300);
+	ft_printf("m=% d\n", 300);
+	printf("p=% d\n", 300);
+	
 	(void)ac;
 	(void)av;
 	return (0);
