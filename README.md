@@ -24,7 +24,7 @@ PARTIE OBLIGATOIRE
 
     Taille minimum du champ (?)
 
-    Gestion de la precision (?)
+   [ ]Gestion de la precision (?)
 	
 
 	NE PAS OUBLIER D'ENLEVER L'OPTION -fsanitize=address
