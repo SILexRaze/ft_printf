@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 01:24:00 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 11:02:12 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	ft_f_width(t_data *data, int size)
 	int		i;
 	char	*s;
 
-	if (data->flags->zero == 1)
-		s = "0";
-	else
-		s = " ";
+	s = (data->flags->zero == 1 ? "0" : " ");
 	i = 0;
 	if (data->f_width != 0)
 	{
@@ -74,9 +71,9 @@ void	ft_accu_int(t_data *data)
 	if (data->accu > -1 && len < (size_t)data->accu)
 	{
 		if (!(zero = ft_strnew(data->accu)))
-			exit (0);
+			exit(0);
 		ft_memset((void*)zero, 48, data->accu - len);
 		if (!(data->prs->tmp = ft_strdjoin(zero, data->prs->tmp)))
-			exit (0);
+			exit(0);
 	}
 }

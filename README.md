@@ -26,7 +26,8 @@ PARTIE OBLIGATOIRE
 
     Gestion de la precision (?)
 	
-
+REMARQUE
+	%010d avec un negatif ne marche pas
 	NE PAS OUBLIER D'ENLEVER L'OPTION -fsanitize=address
 
 BONUS

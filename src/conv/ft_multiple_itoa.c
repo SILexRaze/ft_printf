@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 14:35:43 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 11:07:12 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa_base(int value, int base)
+char		*ft_itoa_base(int value, int base)
 {
 	char	*s;
 	long	n;
@@ -39,7 +39,7 @@ char	*ft_itoa_base(int value, int base)
 	return (s);
 }
 
-char	*ft_itoa_bl(int value, int base)
+char		*ft_itoa_bl(int value, int base)
 {
 	char	*s;
 	long	n;
@@ -97,13 +97,12 @@ char		*ft_dtoa(long double value, int p)
 	dst[i++] = '.';
 	value -= (double)n;
 	value = (value < 0 ? -value : value);
-	while (p > 0)
+	while (p-- > 0)
 	{
-		n =(int)(value * 10);
+		n = (int)(value * 10);
 		value *= 10;
 		dst[i] = n + '0';
 		value -= (double)n;
-		p--;
 		i++;
 	}
 	if ((int)(value * 10) >= 5)

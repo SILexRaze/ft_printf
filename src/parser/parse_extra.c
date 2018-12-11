@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 20:07:26 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 11:08:59 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_isconv(char c)
 {
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'c'
-			|| c == 's' || c == 'p' || c == 'f' || c == 'u' || c == 'b') 
+			|| c == 's' || c == 'p' || c == 'f' || c == 'u' || c == 'b')
 		return (1);
 	return (0);
 }
@@ -45,6 +45,7 @@ int		ft_is_zero(char *str, int i)
 	}
 	return (1);
 }
+
 int		ft_abs(int nb)
 {
 	if (nb < 0)

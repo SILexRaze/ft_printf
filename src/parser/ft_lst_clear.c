@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 21:06:42 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 15:14:36 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 11:08:23 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_lst_clear(t_list **begin_list)
 	int		s;
 
 	tmp = *begin_list;
-	
 	while (tmp)
 	{
 		s = -1;
@@ -41,4 +40,3 @@ void	ft_lst_clear(t_list **begin_list)
 		tmp = tmp->next;
 	}
 }
-

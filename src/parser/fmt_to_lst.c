@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 20:05:54 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 11:09:21 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,3 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list)
 		ft_strdel(&(data->prs->tmp));
 	}
 }
-
-

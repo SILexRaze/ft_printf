@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 12:28:45 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 11:02:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_minhex(t_data *data)
 	t = va_arg(data->ap, int);
 	data->prs->tmp = ft_itoa_bl(t, 16);
 	ft_accuracy(data);
-	ft_f_width(data, ft_strlen(data->prs->tmp));	
+	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
 }
 
