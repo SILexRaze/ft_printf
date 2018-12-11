@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 16:13:27 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/11 17:29:15 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,17 @@ char	*ft_oct(t_data *data)
 	t = va_arg(data->ap, int);
 	data->prs->tmp = ft_itoa_base(ft_cast(data, &t), 8);
 	ft_accu_int(data);
-	ft_f_width(data, ft_strlen(data->prs->tmp));
-	return (data->prs->tmp);
-}
-
-char	*ft_per(t_data *data)
-{
+	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
+	{
+		ft_f_width(data, ft_strlen(data->prs->tmp));
+		data->prs->tmp = ft_strjoind("0", data->prs->tmp);
+	}
+	else if (data->flags->hash == 1 && t != 0)
+	{
+		data->prs->tmp = ft_strjoind("0", data->prs->tmp);
+		ft_f_width(data, ft_strlen(data->prs->tmp));
+	}
+	else
+		ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
 }

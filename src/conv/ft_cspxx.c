@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 16:08:48 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/11 17:31:21 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 char	*ft_char(t_data *data)
 {
@@ -52,7 +51,18 @@ char	*ft_minhex(t_data *data)
 	t = va_arg(data->ap, int);
 	data->prs->tmp = ft_itoa_bl(ft_cast(data, &t), 16);
 	ft_accuracy(data);
-	ft_f_width(data, ft_strlen(data->prs->tmp));
+	if (data->flags->hash == 1 && data->flags->zero == 1)
+	{
+		ft_f_width(data, ft_strlen(data->prs->tmp) + 2);
+		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
+	}
+	else if (data->flags->hash == 1)
+	{
+		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
+		ft_f_width(data, ft_strlen(data->prs->tmp));
+	}
+	else
+		ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
 }
 
@@ -63,7 +73,18 @@ char	*ft_maxhex(t_data *data)
 	t = va_arg(data->ap, int);
 	data->prs->tmp = ft_itoa_base(ft_cast(data, &t), 16);
 	ft_accuracy(data);
-	ft_f_width(data, ft_strlen(data->prs->tmp));
+	if (data->flags->hash == 1 && data->flags->zero == 1)
+	{
+		ft_f_width(data, ft_strlen(data->prs->tmp) + 2);
+		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
+	}
+	else if (data->flags->hash == 1)
+	{
+		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
+		ft_f_width(data, ft_strlen(data->prs->tmp));
+	}
+	else
+		ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
 }
 

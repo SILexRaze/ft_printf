@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 15:47:24 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/11 17:27:58 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		main(int ac, char **av)
 	printf("p=%010hd\n", a);
 	ft_printf("m=% +d\n", 300);
 	printf("p=%+d\n", 300);
-	printf("p=% d\n", 300);*/
+	printf("p=% d\n", 300);
 	ft_printf("m=%hd\n", 38000);
 	printf("p=%hd\n", (short)38000);
 	ft_printf("m=%ld\n", (long int)123);
@@ -52,7 +52,21 @@ int		main(int ac, char **av)
 	ft_printf("m=%d\n", (signed char)128);
 	printf("p=%d\n", (signed char)128);
 	ft_printf("m=%hd\n", (short int)123);
-	printf("p=%hd\n", (short int)123);
+	printf("p=%hd\n", (short int)123);*/
+	ft_printf("%.20f\n", 1.4);
+	printf("%.20f\n", 1.4);
+	ft_printf("%x\n", 255);
+	printf("%x", 255);
+	ft_printf("%#x\n", 255);
+	printf("%#x", 255);
+	ft_printf("%#o\n", 0);
+	printf("%#o\n", 0);
+	ft_printf("%#o\n", 255);
+	printf("%#o", 255);
+	ft_printf("%#010X\n", 255);
+	printf("%#010X\n", 255);
+
+
 	(void)ac;
 	(void)av;
 	return (0);

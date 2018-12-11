@@ -6,13 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 14:47:25 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/11 16:50:10 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-#include <stdio.h>
 
 void	ft_parse_llhh(char *str, t_data **data)
 {
@@ -21,7 +19,6 @@ void	ft_parse_llhh(char *str, t_data **data)
 
 	i = ft_strlen(str) - 2;
 	count = 0;
-	printf("chuiddans\n");
 	if (str[i] == 'h')
 	{
 		(*data)->flags->convh++;
