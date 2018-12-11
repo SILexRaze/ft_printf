@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 17:25:54 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/11 18:07:12 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ char		*ft_dtoa(long double value, int p)
 	n = (long long)value;
 	if (!(dst = ft_strnew(ft_nbr_len(value, &p) + 2)))
 		return (NULL);
-	if (value < (double)0)
-		dst[0] = '-';
 	ft_strcat(dst, ft_itoa(n));
 	i = ft_strlen(dst);
 	dst[i++] = '.';
