@@ -6,18 +6,18 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 11:07:12 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:41:03 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa_base(int value, int base)
+char		*ft_itoa_base(long long value, int base)
 {
-	char	*s;
-	long	n;
-	int		sign;
-	int		i;
+	char		*s;
+	long long	n;
+	int			sign;
+	int			i;
 
 	if (base < 2 || base > 16)
 		return (NULL);
@@ -39,12 +39,12 @@ char		*ft_itoa_base(int value, int base)
 	return (s);
 }
 
-char		*ft_itoa_bl(int value, int base)
+char		*ft_itoa_bl(long long  value, int base)
 {
-	char	*s;
-	long	n;
-	int		sign;
-	int		i;
+	char		*s;
+	long long 	n;
+	int			sign;
+	int			i;
 
 	if (base < 2 || base > 16)
 		return (NULL);

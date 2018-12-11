@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 11:02:46 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 16:08:48 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ char	*ft_string(t_data *data)
 
 char	*ft_minhex(t_data *data)
 {
-	int		t;
+	long long		t;
 
 	t = va_arg(data->ap, int);
-	data->prs->tmp = ft_itoa_bl(t, 16);
+	data->prs->tmp = ft_itoa_bl(ft_cast(data, &t), 16);
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
@@ -58,10 +58,10 @@ char	*ft_minhex(t_data *data)
 
 char	*ft_maxhex(t_data *data)
 {
-	int	t;
+	long long	t;
 
 	t = va_arg(data->ap, int);
-	data->prs->tmp = ft_itoa_base(t, 16);
+	data->prs->tmp = ft_itoa_base(ft_cast(data, &t), 16);
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);

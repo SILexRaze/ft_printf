@@ -6,11 +6,36 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 11:50:10 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 14:47:25 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+#include <stdio.h>
+
+void	ft_parse_llhh(char *str, t_data **data)
+{
+	int count;
+	int	i;
+
+	i = ft_strlen(str) - 2;
+	count = 0;
+	printf("chuiddans\n");
+	if (str[i] == 'h')
+	{
+		(*data)->flags->convh++;
+		if (str[i - 1] == 'h')
+			(*data)->flags->convh++;
+	}
+	else if (str[i] == 'l')
+	{
+		(*data)->flags->convl++;
+		if (str[i - 1] == 'l')
+			(*data)->flags->convl++;
+	}
+}
+
 
 t_flag	*ft_parse_flag(char *str, t_data *data)
 {

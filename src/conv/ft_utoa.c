@@ -6,14 +6,14 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 18:49:44 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/06 01:25:46 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 16:10:42 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static size_t	ft_nlen(unsigned long nb)
+static size_t	ft_nlen(unsigned long long nb)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ static size_t	ft_nlen(unsigned long nb)
 	return (i);
 }
 
-char			*ft_utoa(unsigned long n)
+char			*ft_utoa(unsigned long long n)
 {
 	char				*str;
 	size_t				i;
