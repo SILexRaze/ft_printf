@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 11:09:21 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 12:52:40 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 		while (data->prs->j < len && data->fmt[data->prs->j] != '%')
 			(data->prs->j)++;
 		ft_lst_push_txt(data, begin_list);
+		data->prs->s = data->prs->j;
+		while (data->prs->j < len && data->fmt[data->prs->j] == '%' 
+				&& !ft_is_betw(data->fmt[data->prs->j] 
+					&& !ft_isconv(data->fmt[data->prs->j])))
+			(data->prs->j)++;
+		if (ft_isconv(data->fmt[data->prs->j]) || ft_is_betw(data->fmt[data->prs->j]))
+			(data->prs->j)--;
+		ft_lst_push_mod(data, begin_list);
 		if (!(data->prs->j < len))
 			break ;
 		data->prs->s = data->prs->j;
@@ -37,6 +45,31 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 			ft_lst_push_txt(data, begin_list);
 	}
 	return (*begin_list);
+}
+
+void	ft_lst_push_mod(t_data *data, t_list **begin_list)
+{
+	int	sub;
+	size_t mod;
+
+	sub = data->prs->j - data->prs->s;
+	if (sub > 0)
+	{
+		if (!(data->prs->tmp = ft_strsub(data->fmt, data->prs->s, sub)))
+			exit(0);
+		printf("|%s|\n", data->prs->tmp);
+		mod = ft_strlen(data->prs->tmp) / 2;
+		if (mod > 0)
+		{
+			ft_strdel(&data->prs->tmp);
+			if (!(data->prs->tmp = ft_strsub(data->fmt, 
+						(data->prs->s + mod), (sub - mod))))
+			exit(0);
+		printf("|%s|\n", data->prs->tmp);
+		}
+		ft_list_pushback(begin_list, (void *)ft_strdup(data->prs->tmp), 0);
+		ft_strdel(&(data->prs->tmp));
+	}
 }
 
 void	ft_lst_push_txt(t_data *data, t_list **begin_list)

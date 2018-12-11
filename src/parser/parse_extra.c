@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 11:08:59 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 12:10:53 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_is_univ_flag(char c)
 int		ft_is_betw(char c)
 {
 	if (ft_is_univ_flag(c) || (c > 48 && c < 58) || c == 'l' || c == 'h'
-			|| c == '%' || c == 'L')
+		|| c == '%' || c == 'L')
 		return (1);
 	return (0);
 }

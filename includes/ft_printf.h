@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 10:52:15 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 12:52:43 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_list			*ft_lst_parse_flags(t_data *data, t_list **begin_list);
 void			ft_parse_width_accu(char *str, t_data *data);
 void			ft_lst_clear(t_list **begin_list);
 void			ft_lst_push_txt(t_data *data, t_list **begin_list);
+void			ft_lst_push_mod(t_data *data, t_list **begin_list);
 void			ft_lst_push_flag(t_data *data, t_list **begin_list);
 void			ft_main_parsing(t_data *data, t_list **lst);
 /*
