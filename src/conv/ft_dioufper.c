@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 17:29:15 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/11 18:02:37 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ char	*ft_usgd(t_data *data)
 
 char	*ft_oct(t_data *data)
 {
-	long long	t;
+	unsigned long long	t;
 
-	t = va_arg(data->ap, int);
-	data->prs->tmp = ft_itoa_base(ft_cast(data, &t), 8);
+	t = va_arg(data->ap, unsigned long long);
+	data->prs->tmp = ft_itoa_base(ft_ucast(data, &t), 8);
 	ft_accu_int(data);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
