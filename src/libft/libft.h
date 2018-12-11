@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 10:56:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 18:48:25 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int					ft_list_size(t_list **begin_list);
 void				ft_print_tab_int(int *tab);
 void				ft_print_tab_str(char **tab);
-int					get_next_line(const int fd, char **line);
-int					ft_max(int a, int b);
-int					ft_sqrt(int nb);
 void				ft_list_pushback(t_list **begin_list, void *data,
 					int isflag);
 void				ft_list_pushfront(t_list **begin_list, void *data,
@@ -56,7 +52,6 @@ void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
-void				ft_print_list(t_list **begin_list);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strncat(char *s1, const char *s2, size_t n);
@@ -79,6 +74,11 @@ char				**ft_split(char *str, char *charset);
 char				*ft_itoa(int n);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
+int					get_next_line(const int fd, char **line);
+int					ft_max(int a, int b);
+int					ft_sqrt(int nb);
+int					ft_list_size(t_list **begin_list);
+int					ft_print_list(t_list **begin_list);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

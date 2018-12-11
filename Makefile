@@ -6,12 +6,11 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/11 18:04:48 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/11 18:45:35 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=		main.c						\
-					ft_printf.c					\
+SRCS		=		ft_printf.c					\
 					dispatcher.c				\
 					parser/parser.c				\
 					parser/fmt_to_lst.c			\
@@ -31,8 +30,8 @@ SRC			=		$(addprefix src/, $(SRCS))
 LIBFT		=		src/libft/
 OBJ			=		$(addprefix obj/, $(SRC:.c=.o))
 CC			=		gcc -Wall -Wextra -Werror
-CCF			=		gcc -Wall -Wextra -Werror -fsanitize=address
-NAME		=		ft_printf
+CCF			=		gcc -Wall -Wextra -Werror
+NAME		=		libftprintf.a
 .PHONY		=		all $(NAME) pbstart pbstop $(OBJ) dir clean fclean re
 _UNDER=$'\x1b[4m$'
 _GREEN=$'\x1b[32m$'
@@ -44,7 +43,8 @@ all:	$(NAME)
 
 $(NAME): dir pbstart $(OBJ) pbstop 
 	@make -C $(LIBFT)
-	@$(CCF) $(OBJ) -o $(NAME) -I $(LIBFT) -I includes/ -L src/libft/ -lft
+	@cp src/libft/libft.a $(NAME)
+	@ar rcs $(NAME) $(OBJ)
 	@echo "$(_WHITE)$(NAME)\t$(_GREEN)[OK]$(_END)"
 
 pbstart:

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:13:01 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 10:45:59 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/11 18:46:48 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int		ft_printf(const char *format, ...)
 {
-	t_list	*lst;
-	t_data	*data;
+	t_list		*lst;
+	t_data		*data;
+	long long	ret;
 
+	ret = 0;
 	if (!(data = (t_data *)malloc(sizeof(t_data))))
 		return (0);
 	data->fmt = (char *)format;
@@ -30,7 +32,7 @@ int		ft_printf(const char *format, ...)
 	lst = NULL;
 	va_start(data->ap, format);
 	ft_main_parsing(data, &lst);
-	ft_print_list(&lst);
+	ret = ft_print_list(&lst);
 	va_end(data->ap);
-	return (1);
+	return (ret);
 }
