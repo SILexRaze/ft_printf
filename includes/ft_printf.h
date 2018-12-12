@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:28:23 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:16:34 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			ft_lst_push_flag(t_data *data, t_list **begin_list);
 */
 int				ft_printf(const char *restrict format, ...);
 int				ft_abs(int nb);
-t_data			*ft_dispatch(t_data *data);
+void			ft_dispatch(t_data *data);
 void			ft_str_clear(t_data *data);
 /*
 **	Fonctions d'execution

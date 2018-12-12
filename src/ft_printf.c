@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:13:01 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 15:49:02 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:05:42 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_printf(const char *format, ...)
 	ft_list_del(&lst);
 	ft_strdel(&(data->prs->tmp));
 	free(data->prs);
-	free(data->flags);
 	free(data);
 	va_end(data->ap);
 	return (ret);

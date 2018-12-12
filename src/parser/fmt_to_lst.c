@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 15:23:24 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:05:30 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list)
 		ft_dispatch(data);
 		ft_list_pushback(begin_list, ft_strdup(data->prs->tmp), 1);
 		ft_strdel(&(data->prs->tmp));
+		free(data->flags);
 	}
 }
