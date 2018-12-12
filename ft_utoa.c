@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 18:49:44 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:37:10 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:19:42 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static size_t	ft_nlen(unsigned long long nb)
 {
