@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 16:38:32 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/12 17:00:50 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*ft_char(t_data *data)
 		return (NULL);
 	t = (char)va_arg(data->ap, int);
 	ft_memset((void*)tmp, t, 1);
+	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_strdup(tmp);
 	ft_strdel(&tmp);
 	ft_accuracy(data);
