@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:16:34 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:18:09 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:25:17 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		main(int ac, char **av)
 	short a = 10;
 	c = "salut";
 
+	ft_printf("%c\n", 'z');
+	printf("%c\n", 'z');
 	ft_printf("%10.2s\n", "salut");
 	printf("%10.2s\n", "salut");
 	ft_printf("%10x\n", 255);

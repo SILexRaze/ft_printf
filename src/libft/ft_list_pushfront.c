@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 21:48:25 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/27 15:42:49 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 14:43:14 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_list_pushfront(t_list **begin_list, void *data, int isflag)
+void	ft_list_pushfront(t_list **begin_list, char *data, int isflag)
 {
 	t_list	*tmp;
 

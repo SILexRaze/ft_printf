@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:46:15 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:34:02 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_float(t_data *data)
 	t = va_arg(data->ap, double);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_dtoa(t, data->accu);
-	ft_f_width(data, ft_strlen(ft_dtoa(t, data->accu)));
+	ft_f_width(data, ft_strlen(data->prs->tmp));
 	if (t < 0)
 	{
 		*(ft_strchr(data->prs->tmp, '-')) = '0';

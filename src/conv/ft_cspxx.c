@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 14:10:09 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:48:59 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 char	*ft_char(t_data *data)
 {
-	int		i;
+	char	t;
+	char	*tmp;
 
-	i = 0;
-	while ((data->prs->tmp)[i + 1] && (data->prs->tmp)[i] != 'c')
-		i++;
-	if ((data->prs->tmp)[i] == 'c')
-		(data->prs->tmp)[i + 1] = va_arg(data->ap, int);
-	ft_str_clear(data);
+	if (!(tmp = ft_strnew(1)))
+		return (NULL);
+	t = (char)va_arg(data->ap, int);
+	ft_memset((void*)tmp, t, 1);
+	data->prs->tmp = ft_strdup(tmp);
+	ft_strdel(&tmp);
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
