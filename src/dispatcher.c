@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 16:33:51 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:44:29 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_str_clear(t_data *data)
 	char	*t;
 
 	s = -1;
-	t = (char *)data->prs->tmp;
+	t = data->prs->tmp;
 	i = 0;
 	while (t[i])
 	{

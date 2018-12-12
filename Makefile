@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/12 11:53:11 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/12 15:53:47 by mabouce          ###   ########.fr        #
+#    Updated: 2018/12/12 16:41:59 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ SRCS		=		main.c						\
 					parser/parser.c				\
 					parser/fmt_to_lst.c			\
 					parser/parse_extra.c		\
-					parser/ft_lst_clear.c		\
 					conv/ft_cspxx.c				\
 					conv/ft_multiple_itoa.c		\
 					conv/ft_dioufper.c			\
