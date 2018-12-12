@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:23:13 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 14:08:29 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_accuracy(t_data *data)
 		i++;
 	}
 	data->prs->tmp = ft_strdup(tmp);
+	ft_strdel(&tmp);
 }
 
 void	ft_accu_int(t_data *data)
@@ -71,7 +72,7 @@ void	ft_accu_int(t_data *data)
 		if (!(zero = ft_strnew(data->accu)))
 			exit(0);
 		ft_memset((void*)zero, 48, data->accu - len);
-		if (!(data->prs->tmp = ft_strdjoin(zero, data->prs->tmp)))
+		if (!(data->prs->tmp = ft_strdjoind(zero, data->prs->tmp)))
 			exit(0);
 	}
 }

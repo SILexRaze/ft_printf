@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:37:39 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 14:06:56 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ char		*ft_itoa_bl(long long  value, int base)
 
 size_t		ft_nbr_len(long double value, int *p)
 {
-	size_t	i;
-	int		n;
+	size_t		i;
+	long double	n;
 
 	i = (value < 0 ? 2 : 1);
 	if (*p == 0)
 		*p = 6;
-	n = (int)value;
+	n = value;
 	while ((n /= 10) >= 1)
 		i++;
 	i += *p;

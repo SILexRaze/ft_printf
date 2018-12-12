@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:31:16 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 14:04:33 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_lst_push_mod(t_data *data, t_list **begin_list)
 		mod = ft_strlen(data->prs->tmp) / 2;
 		if (mod > 0)
 		{
-			ft_strdel(&data->prs->tmp);
 			if (!(data->prs->tmp = ft_strsub(data->fmt, 
 							(data->prs->s + mod), (sub - mod))))
 				return ;
