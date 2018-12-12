@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 11:02:12 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 12:23:13 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	ft_f_width(t_data *data, int size)
 {
@@ -34,7 +33,7 @@ void	ft_f_width(t_data *data, int size)
 		{
 			while (data->f_width - size > 0)
 			{
-				data->prs->tmp = ft_strjoin(s, data->prs->tmp);
+				data->prs->tmp = ft_strjoind(s, data->prs->tmp);
 				data->f_width--;
 			}
 		}
@@ -65,8 +64,7 @@ void	ft_accu_int(t_data *data)
 	char	*zero;
 	size_t	len;
 
-	if (!(zero = ft_strnew(0)))
-		exit(0);
+	zero = NULL;
 	len = ft_strlen(data->prs->tmp);
 	if (data->accu > -1 && len < (size_t)data->accu)
 	{

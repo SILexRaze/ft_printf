@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 18:48:25 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 12:15:56 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void				ft_list_pushback(t_list **begin_list, void *data,
 					int isflag);
 void				ft_list_pushfront(t_list **begin_list, void *data,
 					int isflag);
+void				ft_list_del(t_list **begin_list);
 void				ft_memdel(void **ap);
 void				ft_bzero(void *s, size_t n);
 void				ft_strdel(char **as);
@@ -68,6 +69,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strdjoin(char *s1, char *s2);
 char				*ft_strjoind(char *s1, char *s2);
+char				*ft_strdjoind(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				**ft_split(char *str, char *charset);

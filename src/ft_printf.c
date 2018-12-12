@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:13:01 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 18:46:48 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 12:30:10 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ int		ft_printf(const char *format, ...)
 		return (0);
 	lst = NULL;
 	va_start(data->ap, format);
-	ft_main_parsing(data, &lst);
+	ft_lst_parse_flags(data, &lst);
 	ret = ft_print_list(&lst);
+	ft_list_del(&lst);
+	ft_strdel(&(data->prs->tmp));
+	free(data->prs);
+	free(data->flags);
+	free(data);
 	va_end(data->ap);
 	return (ret);
 }

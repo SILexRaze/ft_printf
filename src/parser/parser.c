@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 16:50:10 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/12 12:31:23 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,4 @@ void	ft_parse_width_accu(char *str, t_data *data)
 		}
 		i++;
 	}
-}
-
-void	ft_main_parsing(t_data *data, t_list **lst)
-{
-	int	i;
-
-	i = 0;
-	*lst = ft_lst_parse_flags(data, lst);
 }

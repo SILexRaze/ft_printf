@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 16:42:23 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/12 12:31:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_str_clear(t_data *data)
 
 t_data	*ft_dispatch(t_data *data)
 {
-char	*(*tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-	ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_bin};
+	char	*(*tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
+		ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_bin};
 	char	*db;
 	int		i;
 	int		len;

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/05 14:12:43 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 12:23:51 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,10 @@ static char		*ft_lltoa_base_hexa(long long value)
 	return (s);
 }
 
-static char		*ft_strdjoin_s2(char *s1, char *s2)
-{
-	char	*str;
-
-	if (s2)
-	{
-		if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-			return (NULL);
-		ft_strcat(str, s1);
-		ft_strcat(str, s2);
-		ft_strdel(&s2);
-		return (str);
-	}
-	return (NULL);
-}
-
 char			*ft_putaddr_to_str(long long value)
 {
 	char *dest;
 
-	dest = ft_strdjoin_s2("0x", ft_lltoa_base_hexa(value));
+	dest = ft_strjoind("0x", ft_lltoa_base_hexa(value));
 	return (dest);
 }

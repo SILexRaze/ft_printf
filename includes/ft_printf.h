@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 17:26:13 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/12 12:28:23 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void			ft_lst_clear(t_list **begin_list);
 void			ft_lst_push_txt(t_data *data, t_list **begin_list);
 void			ft_lst_push_mod(t_data *data, t_list **begin_list);
 void			ft_lst_push_flag(t_data *data, t_list **begin_list);
-void			ft_main_parsing(t_data *data, t_list **lst);
 /*
 **	LE RESTE
 */

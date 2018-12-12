@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 18:05:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 12:31:16 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 {
@@ -30,7 +29,8 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 				&& !ft_is_betw(data->fmt[data->prs->j] 
 					&& !ft_isconv(data->fmt[data->prs->j])))
 			(data->prs->j)++;
-		if (ft_isconv(data->fmt[data->prs->j]) || ft_is_betw(data->fmt[data->prs->j]))
+		if (ft_isconv(data->fmt[data->prs->j])
+				|| ft_is_betw(data->fmt[data->prs->j]))
 			(data->prs->j)--;
 		ft_lst_push_mod(data, begin_list);
 		if (!(data->prs->j < len))
@@ -56,16 +56,14 @@ void	ft_lst_push_mod(t_data *data, t_list **begin_list)
 	if (sub > 0)
 	{
 		if (!(data->prs->tmp = ft_strsub(data->fmt, data->prs->s, sub)))
-			exit(0);
-		printf("|%s|\n", data->prs->tmp);
+			return ;
 		mod = ft_strlen(data->prs->tmp) / 2;
 		if (mod > 0)
 		{
 			ft_strdel(&data->prs->tmp);
 			if (!(data->prs->tmp = ft_strsub(data->fmt, 
-						(data->prs->s + mod), (sub - mod))))
-			exit(0);
-		printf("|%s|\n", data->prs->tmp);
+							(data->prs->s + mod), (sub - mod))))
+				return ;
 		}
 		ft_list_pushback(begin_list, (void *)ft_strdup(data->prs->tmp), 0);
 		ft_strdel(&(data->prs->tmp));
@@ -80,7 +78,7 @@ void	ft_lst_push_txt(t_data *data, t_list **begin_list)
 	if (sub > 0)
 	{
 		if (!(data->prs->tmp = ft_strsub(data->fmt, data->prs->s, sub)))
-			exit(0);
+			return ;
 		ft_list_pushback(begin_list, (void *)ft_strdup(data->prs->tmp), 0);
 		ft_strdel(&(data->prs->tmp));
 	}
@@ -94,7 +92,7 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list)
 	if (sub + 1 > 0)
 	{
 		if (!(data->prs->tmp = ft_strsub(data->fmt, data->prs->s, sub + 1)))
-			exit(0);
+			return ;
 		if (!ft_strchr(data->prs->tmp, '.'))
 			data->accu = -1;
 		else
@@ -103,13 +101,7 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list)
 		ft_parse_width_accu(data->prs->tmp, data);
 		data->flags = ft_parse_flag(data->prs->tmp, data);
 		ft_parse_llhh(data->prs->tmp, &data);
-/*		printf("\n0=%d / +=%d / -=%d / #=%d /  =%d l=%d  h=%d\n", 
-						data->flags->zero, data->flags->plus, 
-						data->flags->minus, data->flags->hash, 
-						data->flags->space, data->flags->convl, 
-						data->flags->convh);
-		printf("tmp=\t\t%s\nf_width=\t%d\naccu=\t\t%d\n", data->prs->tmp, data->f_width, data->accu);*/
-		data = ft_dispatch(data);
+		ft_dispatch(data);
 		ft_list_pushback(begin_list, (void *)ft_strdup(data->prs->tmp), 1);
 		ft_strdel(&(data->prs->tmp));
 	}
