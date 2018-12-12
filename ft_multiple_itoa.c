@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 16:30:34 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:02:02 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ char		*ft_itoa_base(long long value, int base)
 	return (s);
 }
 
-char		*ft_itoa_bl(long long  value, int base)
+char		*ft_itoa_bl(long long value, int base)
 {
 	char		*s;
-	long long 	n;
+	long long	n;
 	int			sign;
 	int			i;
 
@@ -84,7 +84,7 @@ size_t		ft_nbr_len(long double value, int *p)
 char		*ft_dtoa(long double value, int p)
 {
 	char		*dst;
-	long long 	n;
+	long long	n;
 	int			i;
 	char		*tmp;
 
@@ -101,9 +101,8 @@ char		*ft_dtoa(long double value, int p)
 	{
 		n = (long long)(value * 10);
 		value *= 10;
-		dst[i] = n + '0';
+		dst[i++] = n + '0';
 		value -= (double)n;
-		i++;
 	}
 	if ((long long)(value * 10) >= 5)
 		ft_round(&dst);

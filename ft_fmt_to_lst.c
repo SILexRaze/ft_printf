@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 17:00:47 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:00:05 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 			(data->prs->j)++;
 		ft_lst_push_txt(data, begin_list);
 		data->prs->s = data->prs->j;
-		while (data->prs->j < len && data->fmt[data->prs->j] == '%' 
-				&& !ft_is_betw(data->fmt[data->prs->j] 
+		while (data->prs->j < len && data->fmt[data->prs->j] == '%'
+				&& !ft_is_betw(data->fmt[data->prs->j]
 					&& !ft_isconv(data->fmt[data->prs->j])))
 			(data->prs->j)++;
 		if (ft_isconv(data->fmt[data->prs->j])
@@ -60,7 +60,7 @@ void	ft_lst_push_mod(t_data *data, t_list **begin_list)
 		mod = ft_strlen(data->prs->tmp) / 2;
 		if (mod > 0)
 		{
-			if (!(data->prs->tmp = ft_strsub(data->fmt, 
+			if (!(data->prs->tmp = ft_strsub(data->fmt,
 							(data->prs->s + mod), (sub - mod))))
 				return ;
 		}

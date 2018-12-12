@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/12 15:53:41 by mabouce          ###   ########.fr        #
+#    Updated: 2018/12/12 17:51:24 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,19 +54,11 @@ all:	$(NAME)
 
 %.o :	%.c ./libft.h
 	@$(CC) -I ./libft.h -c -o $@ $<
-	@/bin/echo -n "#"
 
-$(NAME): pbstart $(OBJ) pbstop
+$(NAME): $(OBJ)
 	@$(CC) -I ./libft.h -c $(SRCS)
 	@ar rcs $(NAME) $(OBJ)
 	@echo "\n$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
-
-pbstart:
-	@echo "$(_YELLOW)$(_UNDER)Compiling $(_BOLD)$(NAME) :$(_END)$(_WHITE)\t$(CC)\n"
-	@/bin/echo -n "0% ["
-
-pbstop:
-	@/bin/echo "] 100%"
 
 clean:
 	@rm -f $(OBJ)

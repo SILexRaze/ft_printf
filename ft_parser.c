@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 14:01:23 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:07:36 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_parse_llhh(char *str, t_data **data)
 {
-	int count;
+	int	count;
 	int	i;
 
 	i = ft_strlen(str) - 2;
@@ -32,7 +32,6 @@ void	ft_parse_llhh(char *str, t_data **data)
 			(*data)->flags->convl++;
 	}
 }
-
 
 t_flag	*ft_parse_flag(char *str, t_data *data)
 {

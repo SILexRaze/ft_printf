@@ -6,11 +6,14 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 16:51:33 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:06:58 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*(*g_tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
+	ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_bin};
 
 void	ft_str_clear(t_data *data)
 {
@@ -34,8 +37,6 @@ void	ft_str_clear(t_data *data)
 
 void	ft_dispatch(t_data *data)
 {
-	char	*(*tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-		ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_bin};
 	char	*db;
 	int		i;
 	int		len;
@@ -49,5 +50,5 @@ void	ft_dispatch(t_data *data)
 			break ;
 		i++;
 	}
-	data->prs->tmp = (tab[i])(data);
+	data->prs->tmp = (g_tab[i])(data);
 }
