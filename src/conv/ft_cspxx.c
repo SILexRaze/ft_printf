@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 15:48:59 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:38:32 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,13 @@ char	*ft_char(t_data *data)
 
 char	*ft_string(t_data *data)
 {
-	int		i;
 	char	*t;
+	char	*tmp;
 
 	t = va_arg(data->ap, char *);
-	i = 0;
-	while ((data->prs->tmp)[i] && (data->prs->tmp)[i] != 's')
-		i++;
-	if ((data->prs->tmp)[i] == 's')
-		data->prs->tmp = ft_strdjoin(data->prs->tmp, t);
+	tmp = ft_strdjoin(data->prs->tmp, t);
+	data->prs->tmp = tmp;
+	ft_strdel(&tmp);
 	ft_str_clear(data);
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
