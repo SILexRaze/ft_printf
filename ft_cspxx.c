@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 14:47:17 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 16:27:41 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ char	*ft_char(t_data *data)
 	if (!(tmp = ft_strnew(1)))
 		return (NULL);
 	t = (char)va_arg(data->ap, int);
+	if (!t)
+	{
+		ft_strdel(&data->prs->tmp);
+		t = 0;
+	}
 	ft_memset((void*)tmp, t, 1);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_strdup(tmp);
@@ -34,8 +39,16 @@ char	*ft_string(t_data *data)
 	char	*t;
 
 	t = va_arg(data->ap, char *);
-	data->prs->tmp = ft_strdjoin(data->prs->tmp, t);
-	ft_str_clear(data);
+	if (t == NULL)
+	{
+		ft_strdel(&data->prs->tmp);
+		data->prs->tmp = ft_strdup("(null)");
+	}
+	else
+	{
+		data->prs->tmp = ft_strdjoin(data->prs->tmp, t);
+		ft_str_clear(data);
+	}
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
@@ -48,13 +61,14 @@ char	*ft_minhex(t_data *data)
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_itoa_bl(t, 16);
-	ft_accuracy(data);
-	if (data->flags->hash == 1 && data->flags->zero == 1)
+	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
+		ft_accuracy(data);
+	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
 		ft_f_width(data, ft_strlen(data->prs->tmp) + 2);
 		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
 	}
-	else if (data->flags->hash == 1)
+	else if (data->flags->hash == 1 && t != 0)
 	{
 		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
 		ft_f_width(data, ft_strlen(data->prs->tmp));
@@ -71,13 +85,14 @@ char	*ft_maxhex(t_data *data)
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_itoa_base(t, 16);
-	ft_accuracy(data);
-	if (data->flags->hash == 1 && data->flags->zero == 1)
+	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
+		ft_accuracy(data);
+	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
 		ft_f_width(data, ft_strlen(data->prs->tmp) + 2);
 		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
 	}
-	else if (data->flags->hash == 1)
+	else if (data->flags->hash == 1 && t != 0)
 	{
 		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
 		ft_f_width(data, ft_strlen(data->prs->tmp));
@@ -94,7 +109,8 @@ char	*ft_ptr(t_data *data)
 	t = va_arg(data->ap, long long);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_putaddr_to_str(t);
-	ft_accuracy(data);
+	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
+		ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
 }
