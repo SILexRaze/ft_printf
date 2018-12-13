@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 14:09:54 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/13 14:47:17 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,9 @@ char	*ft_char(t_data *data)
 char	*ft_string(t_data *data)
 {
 	char	*t;
-	char	*tmp;
 
 	t = va_arg(data->ap, char *);
-	tmp = ft_strdjoin(data->prs->tmp, t);
-	data->prs->tmp = tmp;
-	ft_strdel(&tmp);
+	data->prs->tmp = ft_strdjoin(data->prs->tmp, t);
 	ft_str_clear(data);
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));

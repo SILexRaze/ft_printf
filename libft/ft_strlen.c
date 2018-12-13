@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:43:35 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/07 23:10:54 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 14:43:54 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	const char *p;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	p = s;
+	while (*s)
+		++s;
+	return (s - p);
 }
