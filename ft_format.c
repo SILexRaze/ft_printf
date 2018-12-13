@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 15:41:20 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 19:05:24 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 void	ft_f_width(t_data *data, int size)
 {
-	int		i;
 	char	*s;
+	int i;
+	int ac;
 
-	s = (data->flags->zero == 1 ? "0" : " ");
-	i = 0;
+	ac = data->accu - size;
+	i = data->f_width - size;
+	if (i > 0)
+		s = ft_strnew(i);
+	else
+		return ;
+	if (data->flags->zero == 1 && data->accu == -1 && data->flags->minus == 0)
+		ft_memset(s, 48, i);
+	else
+		ft_memset(s, 32, i);
+	if (data->flags->zero == 1 && ac > 0)
+		while (ac-- > 0)
+			s[i--] = '0';
 	if (data->f_width != 0)
 	{
 		if (data->flags->minus == 1)
-		{
-			while (data->f_width - size > 0)
-			{
-				data->prs->tmp = ft_strdjoin(data->prs->tmp, s);
-				data->f_width--;
-			}
-		}
+			data->prs->tmp = ft_strdjoin(data->prs->tmp, s);
 		else
-		{
-			while (data->f_width - size > 0)
-			{
-				data->prs->tmp = ft_strjoind(s, data->prs->tmp);
-				data->f_width--;
-			}
-		}
+			data->prs->tmp = ft_strjoind(s, data->prs->tmp);
 	}
 }
 

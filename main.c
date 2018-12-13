@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:26:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 16:20:22 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 18:59:32 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main(void)
 {
-	printf("p=%s\n", NULL);
-	ft_printf("m=%s\n", NULL);
+	ft_printf("m=% 010d\n", 1);
+	printf("p=% 010d\n", 1);
 	return (0);
 }
