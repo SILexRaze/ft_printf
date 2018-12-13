@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/12 17:51:24 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/13 11:41:19 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,8 @@ SRCS		=		ft_memcpy.c			ft_bzero.c			ft_memset.c		\
 					ft_itoa.c			ft_strdjoin.c		ft_create_elem.c\
 					ft_list_pushback.c	ft_list_pushfront.c get_next_line.c	\
 					ft_print_tab_str.c	ft_print_tab_int.c	ft_max.c		\
-					ft_sqrt.c			ft_split.c			ft_print_list.c	\
-					ft_list_size.c		ft_strjoind.c		ft_strdjoind.c	\
-					ft_list_del.c
+					ft_sqrt.c			ft_split.c			ft_list_size.c	\
+					ft_strjoind.c		ft_list_del.c		ft_strdjoind.c
 OBJ			=		$(SRCS:.c=.o)
 CC			=		gcc -Wall -Wextra -Werror
 NAME		=		libft.a

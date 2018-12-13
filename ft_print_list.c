@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:24:29 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/11 18:47:43 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 11:56:53 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_print_list(t_list **begin_list)
 {
 	t_list	*tmp;
 	int		i;
+	char	*str;
 
 	i = 0;
 	tmp = *begin_list;
@@ -23,10 +24,19 @@ int	ft_print_list(t_list **begin_list)
 	{
 		while (tmp)
 		{
-			ft_putstr((char *)tmp->data);
 			i += ft_strlen((char *)tmp->data);
 			tmp = tmp->next;
 		}
+		tmp = *begin_list;
+		if (!(str = ft_strnew(i)))
+			return (0);
+		while (tmp)
+		{
+			ft_strcat(str, (char *)tmp->data);
+			tmp = tmp->next;
+		}
+		ft_putstr(str);
+		ft_strdel(&str);
 	}
 	return (i);
 }

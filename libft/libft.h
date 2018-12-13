@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 14:42:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 11:37:42 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int					get_next_line(const int fd, char **line);
 int					ft_max(int a, int b);
 int					ft_sqrt(int nb);
 int					ft_list_size(t_list **begin_list);
-int					ft_print_list(t_list **begin_list);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
