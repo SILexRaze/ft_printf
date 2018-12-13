@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 11:58:59 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/13 14:02:58 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FT_PRINTF_H
 # include "libft.h"
 # include <stdarg.h>
+
+typedef unsigned long long	ull;
 
 typedef struct			s_flag
 {
@@ -80,8 +82,8 @@ char					*ft_bin(t_data *data);
 void					ft_f_width(t_data *data, int size);
 void					ft_accuracy(t_data *data);
 void					ft_accu_int(t_data *data);
-long long				ft_cast(t_data *data, long long *t);
-unsigned long long		ft_ucast(t_data *data, unsigned long long *t);
+void					ft_cast(t_data *data, long long *t);
+void					ft_ucast(t_data *data, unsigned long long *t);
 /*
 **	Fonctions de conversion
 */
