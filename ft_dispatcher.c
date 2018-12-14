@@ -6,14 +6,14 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 15:59:39 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/14 15:55:54 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 char	*(*g_tab[])(t_data *data) = {ft_char, ft_string, ft_minhex, ft_maxhex,
-	ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_bin};
+	ft_float, ft_ptr, ft_int, ft_int, ft_usgd, ft_oct, ft_bin, ft_mod};
 
 void	ft_str_clear(t_data *data)
 {
@@ -43,7 +43,7 @@ void	ft_dispatch(t_data *data)
 
 	len = ft_strlen(data->prs->tmp) - 1;
 	i = 0;
-	db = "csxXfpiduob";
+	db = "csxXfpiduob%";
 	while (db[i])
 	{
 		if ((data->prs->tmp)[len] == db[i])

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 19:05:22 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:37:06 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -25,17 +25,7 @@ t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
 			(data->prs->j)++;
 		ft_lst_push_txt(data, begin_list);
 		data->prs->s = data->prs->j;
-		while (data->prs->j < len && data->fmt[data->prs->j] == '%'
-				&& !ft_is_betw(data->fmt[data->prs->j]
-					&& !ft_isconv(data->fmt[data->prs->j])))
-			(data->prs->j)++;
-		if (ft_isconv(data->fmt[data->prs->j])
-				|| ft_is_betw(data->fmt[data->prs->j]))
-			(data->prs->j)--;
-		ft_lst_push_mod(data, begin_list);
-		if (!(data->prs->j < len))
-			break ;
-		data->prs->s = data->prs->j;
+		(data->prs->j)++;
 		while (data->prs->j < len && ft_is_betw(data->fmt[data->prs->j])
 				&& !ft_isconv(data->fmt[data->prs->j]))
 			(data->prs->j)++;

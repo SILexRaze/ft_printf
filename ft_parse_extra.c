@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 18:57:36 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/14 15:52:41 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int		ft_isconv(char c)
 {
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'c'
-			|| c == 's' || c == 'p' || c == 'f' || c == 'u' || c == 'b')
+			|| c == 's' || c == 'p' || c == 'f' || c == 'u' || c == 'b'
+			|| c == '%')
 		return (1);
 	return (0);
 }
@@ -30,7 +31,7 @@ int		ft_is_univ_flag(char c)
 int		ft_is_betw(char c)
 {
 	if (ft_is_univ_flag(c) || (c > 48 && c < 58) || c == 'l' || c == 'h'
-			|| c == '%' || c == 'L')
+		|| c == 'L')
 		return (1);
 	return (0);
 }

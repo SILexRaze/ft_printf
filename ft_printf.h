@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 14:53:16 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/14 15:56:37 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void					ft_str_clear(t_data *data);
 **	Fonctions d'execution
 */
 char					*ft_char(t_data *data);
+char					*ft_mod(t_data *data);
 char					*ft_string(t_data *data);
 char					*ft_minhex(t_data *data);
 char					*ft_maxhex(t_data *data);

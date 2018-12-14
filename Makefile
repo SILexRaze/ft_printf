@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/13 14:07:25 by rvalenti         ###   ########.fr        #
+#    Updated: 2018/12/14 15:56:59 by rvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS		=		ft_printf.c			\
 					ft_bonus.c			\
 					ft_cast.c			\
 					ft_format.c			\
-					ft_print_list.c
+					ft_print_list.c		\
+					ft_mod.c
 LIBFT		=		libft/
 OBJ			=		$(SRCS:.c=.o)
 CC			=		gcc -Wall -Wextra -Werror
