@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 19:05:24 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/14 20:09:41 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	ft_f_width(t_data *data, int size)
 		else
 			data->prs->tmp = ft_strjoind(s, data->prs->tmp);
 	}
+	if (data->accu == 0)
+		ft_memset(data->prs->tmp, ' ', ft_strlen(data->prs->tmp));
 }
 
 void	ft_accuracy(t_data *data)
@@ -46,18 +48,24 @@ void	ft_accuracy(t_data *data)
 	char	*tmp;
 
 	i = 0;
-	tmp = data->prs->tmp;
-	while (tmp[i])
+	tmp = NULL;
+	if (data->accu == 0)
+		ft_strclr(data->prs->tmp);
+	else
 	{
-		if (i == data->accu)
+		tmp = data->prs->tmp;
+		while (tmp[i])
 		{
-			tmp[i] = '\0';
-			break ;
+			if (i == data->accu)
+			{
+				tmp[i] = '\0';
+				break ;
+			}
+			i++;
 		}
-		i++;
+		data->prs->tmp = ft_strdup(tmp);
+		ft_strdel(&tmp);
 	}
-	data->prs->tmp = ft_strdup(tmp);
-	ft_strdel(&tmp);
 }
 
 void	ft_accu_int(t_data *data)
@@ -67,12 +75,16 @@ void	ft_accu_int(t_data *data)
 
 	zero = NULL;
 	len = ft_strlen(data->prs->tmp);
-	if (data->accu > -1 && len < (size_t)data->accu)
+	if (data->accu == 0 && *data->prs->tmp == '0' && data->flags->hash != 1)
+	{
+		ft_strclr(data->prs->tmp);
+	}
+	else if (data->accu > -1 && len < (size_t)data->accu)
 	{
 		if (!(zero = ft_strnew(data->accu)))
-			exit(0);
+			return ;
 		ft_memset((void*)zero, 48, data->accu - len);
 		if (!(data->prs->tmp = ft_strdjoind(zero, data->prs->tmp)))
-			exit(0);
+			return ;
 	}
 }

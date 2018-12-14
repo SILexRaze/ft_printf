@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 14:23:36 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/14 20:09:42 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 char		*ft_itoa_base(long long value, int base)
 {
 	char		*s;
-	long long	n;
+	ull			n;
 	int			sign;
 	int			i;
 
 	if (base < 2 || base > 16)
 		return (NULL);
-	n = (value < 0) ? -(long)value : value;
+	n = (ull)((value < 0) ? -value : value);
 	sign = (value < 0 && base == 10) ? -1 : 0;
 	i = (sign == -1) ? 2 : 1;
 	while ((n /= base) >= 1)
@@ -29,7 +29,7 @@ char		*ft_itoa_base(long long value, int base)
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	s[i] = '\0';
-	n = (value < 0) ? -(long)value : value;
+	n = (ull)((value < 0) ? -value : value);
 	while (i-- + sign)
 	{
 		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'A' - 10;
@@ -42,13 +42,13 @@ char		*ft_itoa_base(long long value, int base)
 char		*ft_itoa_bl(long long value, int base)
 {
 	char			*s;
-	long long		n;
+	ull				n;
 	int				sign;
 	int				i;
 
 	if (base < 2 || base > 16)
 		return (NULL);
-	n = (value < 0) ? -value : value;
+	n = (ull)((value < 0) ? -value : value);
 	sign = (value < 0 && base == 10) ? -1 : 0;
 	i = (sign == -1) ? 2 : 1;
 	while ((n /= base) >= 1)
@@ -56,7 +56,7 @@ char		*ft_itoa_bl(long long value, int base)
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	s[i] = '\0';
-	n = (value < 0) ? -value : value;
+	n = (ull)((value < 0) ? -value : value);
 	while (i-- + sign)
 	{
 		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'a' - 10;
@@ -72,7 +72,7 @@ size_t		ft_nbr_len(long double value, int *p)
 	long double	n;
 
 	i = (value < 0 ? 2 : 1);
-	if (*p == 0)
+	if (*p == -1)
 		*p = 6;
 	n = value;
 	while ((n /= 10) >= 1)
@@ -84,28 +84,31 @@ size_t		ft_nbr_len(long double value, int *p)
 char		*ft_dtoa(long double value, int p)
 {
 	char		*dst;
-	long long	n;
+	ull			n;
 	int			i;
 	char		*tmp;
 
-	n = (long long)value;
+	n = (ull)value;
 	if (!(dst = ft_strnew(ft_nbr_len(value, &p) + 3)))
 		return (NULL);
 	tmp = ft_itoa(n);
 	ft_strcat(dst, tmp);
 	i = ft_strlen(dst);
-	dst[i++] = '.';
-	value -= (double)n;
-	value = (value < 0 ? -value : value);
-	while (p-- > 0)
+	if (p != 0)
 	{
-		n = (long long)(value * 10);
-		value *= 10;
-		dst[i++] = n + '0';
+		dst[i++] = '.';
 		value -= (double)n;
+		value = (value < 0 ? -value : value);
+		while (p-- > 0)
+		{
+			n = (ull)(value * 10);
+			value *= 10;
+			dst[i++] = n + '0';
+			value -= (double)n;
+		}
+		if ((ull)(value * 10) >= 5)
+			ft_round(&dst);
 	}
-	if ((long long)(value * 10) >= 5)
-		ft_round(&dst);
 	free(tmp);
 	return (dst);
 }
