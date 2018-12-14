@@ -17,7 +17,6 @@ char    *ft_mod(t_data *data)
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_strdup(tmp);
 	ft_strdel(&tmp);
-	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);
 }
