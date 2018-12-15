@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/14 20:09:41 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/15 14:23:35 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	ft_f_width(t_data *data, int size)
 	if (data->f_width != 0)
 	{
 		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strdjoin(data->prs->tmp, s);
+			data->prs->tmp = ft_strdjoind(data->prs->tmp, s);
 		else
-			data->prs->tmp = ft_strjoind(s, data->prs->tmp);
+			data->prs->tmp = ft_strdjoind(s, data->prs->tmp);
 	}
 	if (data->accu == 0)
 		ft_memset(data->prs->tmp, ' ', ft_strlen(data->prs->tmp));
