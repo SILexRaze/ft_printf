@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:26:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/15 14:21:11 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/15 14:37:55 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(void)
 	printf("%10.1x\n", 255);
 	ft_printf("%10.1X\n", 255);
 	printf("%10.1X\n", 255);
-	printf("p=%10c\n",'v');
+	printf("p=%10c\n", 'v');
 	ft_printf("m=%10c\n",'v');
 	printf("p%10p\n", c);
 	ft_printf("m%10.5p\n", c);
@@ -59,8 +59,8 @@ int		main(void)
 	printf("%#o\n", 255);
 	ft_printf("%#010X\n", 255);
 	printf("%#010X\n", 255);
-	ft_printf("m=%.1f\n",123.0);
-	printf("p=%.1f\n",123.0);
+	ft_printf("m=%.1f\n", 123.0);
+	printf("p=%.1f\n", 123.0);
 	ft_printf("m=@moulitest: %.10d\n", -42);
 	printf("p=@moulitest: %.10d\n", -42);
 	ft_printf("m=%0+5d\n", 42);

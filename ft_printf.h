@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/14 19:21:08 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/15 14:27:44 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 # include "libft.h"
 # include <stdarg.h>
 
-typedef unsigned long long	ull;
+typedef	unsigned long long	t_ull;
 
-typedef struct			s_flag
+typedef	struct			s_flag
 {
 	int					hash;
 	int					zero;

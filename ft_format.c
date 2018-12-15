@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/15 14:23:35 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/15 14:34:49 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_f_width(t_data *data, int size)
 {
 	char	*s;
-	int i;
-	int ac;
+	int		i;
+	int		ac;
 
 	ac = data->accu - size;
 	i = data->f_width - size;
