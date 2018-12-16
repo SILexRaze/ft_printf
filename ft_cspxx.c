@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/14 19:36:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/15 14:33:33 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char	*ft_string(t_data *data)
 	{
 		ft_strdel(&data->prs->tmp);
 		data->prs->tmp = ft_strdup(t);
-	//	ft_str_clear(data);
 	}
 	ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
@@ -62,7 +61,7 @@ char	*ft_minhex(t_data *data)
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_itoa_bl(t, 16);
-	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
+	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accuracy(data);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
@@ -86,7 +85,7 @@ char	*ft_maxhex(t_data *data)
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_itoa_base(t, 16);
-	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
+	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accuracy(data);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
@@ -110,7 +109,7 @@ char	*ft_ptr(t_data *data)
 	t = va_arg(data->ap, long long);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_putaddr_to_str(t);
-	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
+	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accuracy(data);
 	ft_f_width(data, ft_strlen(data->prs->tmp));
 	return (data->prs->tmp);

@@ -6,7 +6,7 @@
 /*   By: mabouce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 14:44:19 by mabouce           #+#    #+#             */
-/*   Updated: 2018/12/13 14:12:30 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/15 14:32:54 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,16 @@ void	ft_cast(t_data *data, long long *t)
 		*t = (long long)(va_arg(data->ap, int));
 }
 
-
 void	ft_ucast(t_data *data, unsigned long long *t)
 {
 	if (data->flags->convh == 1)
-		*t = (ull)((unsigned short int)va_arg(data->ap, ull));
+		*t = (t_ull)((unsigned short int)va_arg(data->ap, t_ull));
 	else if (data->flags->convh == 2)
-		*t = (ull)((unsigned char)va_arg(data->ap, ull));
+		*t = (t_ull)((unsigned char)va_arg(data->ap, t_ull));
 	else if (data->flags->convl == 1)
-		*t = (ull)((unsigned long)va_arg(data->ap, ull));
+		*t = (t_ull)((unsigned long)va_arg(data->ap, t_ull));
 	else if (data->flags->convl == 2)
-		*t = (ull)((unsigned long long)va_arg(data->ap, ull));
+		*t = (t_ull)((unsigned long long)va_arg(data->ap, t_ull));
 	else
-		*t = (ull)va_arg(data->ap, unsigned int);
+		*t = (t_ull)va_arg(data->ap, unsigned int);
 }
-
