@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:49:46 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/13 11:37:42 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/16 16:22:28 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@
 typedef struct		s_list
 {
 	char			*data;
-	int				isflag;
+	int				len;
 	struct s_list	*next;
 }					t_list;
 
 void				ft_print_tab_int(int *tab);
 void				ft_print_tab_str(char **tab);
 void				ft_list_pushback(t_list **begin_list, char *data,
-					int isflag);
+					int len);
 void				ft_list_pushfront(t_list **begin_list, char *data,
-					int isflag);
+					int len);
 void				ft_list_del(t_list **begin_list);
 void				ft_memdel(void **ap);
 void				ft_bzero(void *s, size_t n);
@@ -93,6 +93,6 @@ int					ft_tolower(int c);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_atoi(const char *str);
-t_list				*ft_create_elem(char *data, int isflag);
+t_list				*ft_create_elem(char *data, int len);
 
 #endif

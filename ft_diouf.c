@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/15 14:33:11 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/16 16:43:37 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ char	*ft_float(t_data *data)
 	t = va_arg(data->ap, double);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_dtoa(t, data->accu);
-	ft_f_width(data, ft_strlen(data->prs->tmp));
+	data->len = ft_strlen(data->prs->tmp);
+	ft_f_width(data, data->len);
 	if (t < 0)
 	{
 		*(ft_strchr(data->prs->tmp, '-')) = '0';
 		data->prs->tmp[0] = '-';
 	}
+	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }
 
@@ -40,6 +42,7 @@ char	*ft_int(t_data *data)
 	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accu_int(data);
 	ft_manage_int(data, t);
+	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }
 
@@ -52,7 +55,9 @@ char	*ft_usgd(t_data *data)
 	data->prs->tmp = ft_utoa(t);
 	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accu_int(data);
-	ft_f_width(data, ft_strlen(data->prs->tmp));
+	data->len = ft_strlen(data->prs->tmp);
+	ft_f_width(data, data->len);
+	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }
 
@@ -65,17 +70,21 @@ char	*ft_oct(t_data *data)
 	data->prs->tmp = ft_itoa_base(t, 8);
 	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accu_int(data);
+	data->len = ft_strlen(data->prs->tmp);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
-		ft_f_width(data, ft_strlen(data->prs->tmp));
+		ft_f_width(data, data->len);
 		data->prs->tmp = ft_strjoind("0", data->prs->tmp);
+		data->len = ft_strlen(data->prs->tmp);
 	}
 	else if (data->flags->hash == 1 && t != 0)
 	{
 		data->prs->tmp = ft_strjoind("0", data->prs->tmp);
-		ft_f_width(data, ft_strlen(data->prs->tmp));
+		data->len = ft_strlen(data->prs->tmp);
+		ft_f_width(data, data->len);
 	}
 	else
-		ft_f_width(data, ft_strlen(data->prs->tmp));
+		ft_f_width(data, data->len);
+	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }

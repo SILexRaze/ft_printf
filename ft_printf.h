@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 14:06:59 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/16 16:56:24 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct				s_data
 	char					*fmt;
 	int						f_width;
 	int						accu;
+	int						len;
 	t_flag					*flags;
 	t_parser				*prs;
 	va_list					ap;
@@ -59,6 +60,7 @@ void						ft_parse_width_accu(char *str, t_data *data);
 void						ft_lst_push_txt(t_data *data, t_list **begin_list);
 void						ft_lst_push_mod(t_data *data, t_list **begin_list);
 void						ft_lst_push_flag(t_data *data, t_list **begin_list);
+void						ft_lst_push_flag_txt(t_data *data, t_list **begin_list);
 /*
 **	LE RESTE
 */
