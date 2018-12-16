@@ -83,6 +83,9 @@ char					*ft_bin(t_data *data);
 void					ft_f_width(t_data *data, int size);
 void					ft_accuracy(t_data *data);
 void					ft_accu_int(t_data *data);
+void					ft_manage_int(t_data *data, long long t);
+void					ft_place_sign(char *s, t_data *data);
+int					ft_strchr_space(char *s);
 void					ft_cast(t_data *data, long long *t);
 void					ft_ucast(t_data *data, unsigned long long *t);
 /*

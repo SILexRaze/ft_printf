@@ -39,21 +39,7 @@ char	*ft_int(t_data *data)
 	data->prs->tmp = ft_itoa_base(t, 10);
 	if ((ull)data->accu > (ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accu_int(data);
-	if (t >= 0 && data->flags->space == 1 && (size_t)data->f_width >= ft_strlen(data->prs->tmp))
-		data->prs->tmp = ft_strjoind(" ", data->prs->tmp);
-	if (t >= 0 && data->flags->plus == 1)
-	{
-		if (data->flags->space == 1)
-			data->prs->tmp[0] = (t >= 0 ? '+' : '-');
-		else
-			data->prs->tmp = ft_strjoind((t >= 0 ? "+" : "-"), data->prs->tmp);
-	}
-	ft_f_width(data, ft_strlen(data->prs->tmp));
-	if (t < 0 && (data->flags->zero == 1 || data->accu != -1))
-	{
-		*(ft_strchr(data->prs->tmp, '-')) = '0';
-		data->prs->tmp[0] = '-';
-	}
+	ft_manage_int(data, t);
 	return (data->prs->tmp);
 }
 

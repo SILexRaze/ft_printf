@@ -15,7 +15,19 @@
 
 int		main(void)
 {
-	ft_printf("%.1f\n",123.0);
-	printf("p=%.1f\n",123.0);
+	ft_printf("%5d\n", -42);
+	printf("%5d\n", -42);
+	ft_printf("@moulitest: %.10d\n", -42);
+	printf("@moulitest: %.10d\n", -42);
+	ft_printf("%+10.5d\n", 4242);
+	printf("%+10.5d\n", 4242);
+	ft_printf("%10.5d\n", 4242);
+	printf("%10.5d\n", 4242);
+	ft_printf("%-10.5d\n",-42);
+	printf("%-10.5d\n",-42);
+	ft_printf("%+05d\n",42);
+	printf("%+05d\n",42);
+	ft_printf("%3.2d\n",-1);
+	printf("%3.2d\n",-1);
 	return (0);
 }

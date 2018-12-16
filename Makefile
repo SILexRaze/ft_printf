@@ -25,7 +25,8 @@ SRCS		=		ft_printf.c			\
 					ft_cast.c			\
 					ft_format.c			\
 					ft_print_list.c		\
-					ft_mod.c
+					ft_mod.c		\
+					ft_manage_d.c
 LIBFT		=		libft/
 OBJ			=		$(SRCS:.c=.o)
 CC			=		gcc -Wall -Wextra -Werror
