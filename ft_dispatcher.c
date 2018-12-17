@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:01:07 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 17:21:51 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/16 18:47:08 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_str_clear(t_data *data)
 		i++;
 	}
 	data->prs->tmp = ft_strsub(t, i, ft_strlen(data->prs->tmp));
+	ft_strdel(&t);
 }
 
 void	ft_dispatch(t_data *data)

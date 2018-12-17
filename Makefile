@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/16 16:44:04 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/16 18:46:24 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,13 @@ SRCS		=		ft_printf.c			\
 					ft_cast.c			\
 					ft_format.c			\
 					ft_print_list.c		\
-					ft_mod.c		\
+					ft_mod.c			\
 					ft_manage_d.c
 LIBFT		=		libft/
 OBJ			=		$(SRCS:.c=.o)
-CC			=		gcc -Wall -Wextra -Werror
+CC			=		gcc -Wall -Wextra -Werror -g
 NAME		=		libftprintf.a
-.PHONY		=		all $(NAME) pbstart pbstop $(OBJ) dir clean fclean re
+.PHONY		=		all $(NAME) $(OBJ) clean fclean re
 _UNDER=$'\x1b[4m$'
 _GREEN=$'\x1b[32m$'
 _YELLOW=$'\x1b[33m$'

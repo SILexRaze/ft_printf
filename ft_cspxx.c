@@ -6,10 +6,10 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 16:57:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 11:40:25 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "ft_printf.h"
 
 char	*ft_char(t_data *data)
@@ -125,6 +125,7 @@ char	*ft_ptr(t_data *data)
 	t = va_arg(data->ap, long long);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_putaddr_to_str(t);
+	data->len = ft_strlen(data->prs->tmp);
 	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accuracy(data);
 	data->len = ft_strlen(data->prs->tmp);

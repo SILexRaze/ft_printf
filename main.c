@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:26:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 16:55:50 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 11:42:42 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main(void)
 {
-/*	ft_printf("%5d\n", -42);
+	ft_printf("%5d\n", -42);
 	printf("%5d\n", -42);
 	ft_printf("@moulitest: %.10d\n", -42);
 	printf("@moulitest: %.10d\n", -42);
@@ -78,10 +78,21 @@ int		main(void)
 	ft_printf("m=@moulitest: %.10d\n", -42);
 	printf("p=@moulitest: %.10d\n", -42);
 	ft_printf("m=%0+5d\n", 42);
-	printf("p=%0+5d\n", 42);*/
+	printf("p=%0+5d\n", 42);
 	ft_printf("%3c\n", 0);
 	printf("%3c\n", 0);
 	ft_printf("%10V\n");
 	printf("%10V\n");
+	ft_printf("m={% 03d}\n", 0);
+	printf("p={% 03d}\n", 0);
+	ft_printf("m=%.4d\n", -424242);
+	printf("p=%.4d\n", -424242);
+	ft_printf("m=%15.4o\n", 42);
+	printf("p=%15.4o\n", 42);
+	ft_printf("m=%15.4s\n", "I am 42");
+	printf("p=%15.4s\n", "I am 42");
+	ft_printf("m=%.0p, %.p\n", 0, 0);
+	printf("p=%.0p, %.p\n", 0, 0);
+	printf("test=|% -4d|\n", 10);
 	return (0);
 }

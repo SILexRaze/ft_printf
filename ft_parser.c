@@ -6,11 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 16:58:02 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 11:48:55 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 void	ft_parse_llhh(char *str, t_data **data)
 {
@@ -66,14 +67,14 @@ void	ft_parse_width_accu(char *str, t_data *data)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] > '0' && str[i] <= '9')
 		{
 			if (str[i - 1] != '.' && data->f_width == -1)
 				data->f_width = ft_abs(ft_atoi(str + i));
-			else if (data->accu == 0)
+			else if (data->accu == 0 && str[i - 1] == '.')
 				data->accu = ft_abs(ft_atoi(str + i));
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 16:43:37 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 11:31:24 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ char	*ft_int(t_data *data)
 	ft_cast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	data->prs->tmp = ft_itoa_base(t, 10);
+	data->len = ft_strlen(data->prs->tmp);
 	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
 		ft_accu_int(data);
+	data->len = ft_strlen(data->prs->tmp);
 	ft_manage_int(data, t);
 	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
