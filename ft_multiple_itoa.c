@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 13:58:51 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 14:18:20 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa_base(long long value, int base)
+char		*ft_itoa_base(long long value, int base, int p)
 {
 	char		*s;
 	t_ull		n;
@@ -23,9 +23,11 @@ char		*ft_itoa_base(long long value, int base)
 		return (NULL);
 	n = (t_ull)((value < 0) ? -value : value);
 	sign = (value < 0 && base == 10) ? -1 : 0;
-	i = (sign == -1) ? 2 : 1;
+	i = 1;
 	while ((n /= base) >= 1)
 		i++;
+	i = (p < i ? i: i + (p - i));
+	i = (sign == -1) ? i + 1 : i;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	s[i] = '\0';
@@ -39,7 +41,7 @@ char		*ft_itoa_base(long long value, int base)
 	return (s);
 }
 
-char		*ft_itoa_bl(long long value, int base)
+*char		*ft_itoa_bl(long long value, int base, int p)
 {
 	char			*s;
 	t_ull			n;
@@ -50,9 +52,11 @@ char		*ft_itoa_bl(long long value, int base)
 		return (NULL);
 	n = (t_ull)((value < 0) ? -value : value);
 	sign = (value < 0 && base == 10) ? -1 : 0;
-	i = (sign == -1) ? 2 : 1;
+	i = 1;
 	while ((n /= base) >= 1)
 		i++;
+	i = (p < i ? i: i + (p - i));
+	i = (sign == -1) ? i + 1 : i;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	s[i] = '\0';
