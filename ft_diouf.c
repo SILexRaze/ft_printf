@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 18:23:08 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/17 19:46:38 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ char	*ft_int(t_data *data)
 
 	ft_cast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	data->prs->tmp = ft_itoa_base(ft_abs(t), 10, data->accu);
+	if (data->accu != 0 || t != 0)
+		data->prs->tmp = ft_itoa_base(t, 10, data->accu);
+	else
+		data->prs->tmp = ft_strdup("");
+	if (t < 0)
+		data->prs->tmp = ft_strsub(data->prs->tmp, 1, ft_strlen(data->prs->tmp));
 	data->len = ft_strlen(data->prs->tmp);
 	ft_padding(data);
 	if (data->flags->space == 1)
@@ -87,7 +92,10 @@ char	*ft_usgd(t_data *data)
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	data->prs->tmp = ft_utoa(t, data->accu);
+	if (data->accu != 0)
+		data->prs->tmp = ft_utoa(t, data->accu);
+	else
+		data->prs->tmp = ft_strdup("");
 	data->len = ft_strlen(data->prs->tmp);
 	ft_padding(data);
 	if (data->flags->minus == 1)
@@ -104,7 +112,12 @@ char	*ft_oct(t_data *data)
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	data->prs->tmp = ft_itoa_base(t, 8, data->accu);
+	if (data->accu != 0)
+		data->prs->tmp = ft_itoa_base(t, 8, data->accu);
+	else if (data->flags->hash == 1)
+		data->prs->tmp = ft_strdup("0");
+	else
+		data->prs->tmp = ft_strdup("");
 	data->len = ft_strlen(data->prs->tmp);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{

@@ -6,11 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:41:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 15:46:22 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 18:56:49 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 void	ft_padding(t_data *data)
 {
@@ -36,10 +37,7 @@ void	ft_space(t_data *data, long long t)
 			data->pad[0] = ' ';
 	}
 	else
-	{
-		if (t >= 0)
-			data->pad = ft_strjoind(" ", data->pad);
-	}
+		data->pad = ft_strjoind(" ", data->pad);
 }
 
 void	ft_sign(t_data *data, long long t)
@@ -57,7 +55,9 @@ void	ft_sign(t_data *data, long long t)
 	else
 	{
 		if (data->flags->space == 1)
+		{
 			*ft_strchr(data->pad, ' ') = sign;
+		}
 		else
 			data->pad = ft_strjoind((t < 0 ? "-" : "+"), data->pad);
 	}

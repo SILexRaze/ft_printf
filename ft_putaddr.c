@@ -6,13 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/12 12:23:51 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 19:31:56 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char		*ft_lltoa_base_hexa(long long value)
+static char		*ft_lltoa_base_hexa(long long value, int p)
 {
 	char	*s;
 	long	n;
@@ -23,7 +23,9 @@ static char		*ft_lltoa_base_hexa(long long value)
 	base = 16;
 	n = (value < 0) ? -(long)value : value;
 	sign = (value < 0 && base == 10) ? -1 : 0;
-	i = (sign == -1) ? 2 : 1;
+	i = 1;
+	i = (p < i ? i : i + (p - i));
+	i = (sign == -1) ? i + 1 : i;
 	while ((n /= base) >= 1)
 		i++;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
@@ -39,10 +41,10 @@ static char		*ft_lltoa_base_hexa(long long value)
 	return (s);
 }
 
-char			*ft_putaddr_to_str(long long value)
+char			*ft_putaddr_to_str(long long value, int p)
 {
 	char *dest;
 
-	dest = ft_strjoind("0x", ft_lltoa_base_hexa(value));
+	dest = ft_strjoind("0x", ft_lltoa_base_hexa(value, p));
 	return (dest);
 }

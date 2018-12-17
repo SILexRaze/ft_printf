@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 16:57:53 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 19:30:09 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void						ft_ucast(t_data *data, unsigned long long *t);
 char						*ft_itoa_bl(long long valoe, int base, int p);
 char						*ft_itoa_base(long long value, int base, int p);
 char						*ft_dtoa(long double value, int p);
-char						*ft_putaddr_to_str(long long value);
+char						*ft_putaddr_to_str(long long value, int p);
 char						*ft_utoa(unsigned long long n, int p);
 void						ft_round(char **str);
 char						*ft_alloc(long double value, int p);

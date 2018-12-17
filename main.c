@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:26:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 17:27:55 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 19:39:41 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ int		main(void)
 	printf("p=%15.4s\n", "I am 42");
 	ft_printf("m=%.0p, %.p\n", 0, 0);
 	printf("p=%.0p, %.p\n", 0, 0);
-	printf("test=|% -4d|\n", 10);*/
+	printf("test=|% -4d|\n", 10);
 		printf("\nsigned int\n");
-	ft_printf("% .5d\n", 10);
-	printf("% .5d\n", 10);
+	ft_printf("% d\n", -42);
+	printf("% d\n", -42);
 	ft_printf("%.5d\n", 10);
 	printf("%.5d\n", 10);
 	ft_printf("% +.5d\n", -10);
@@ -164,9 +164,21 @@ int		main(void)
 	ft_printf("%+.2X\n", +10);
 	printf("%+.2X\n", +10);
 	ft_printf("% -10.100X\n", -12000);
-	printf("% -10.100X\n", -12000);
+	printf("% -10.100X\n", -12000);*/
 
-
-
+	ft_printf("m=%lld\n", -9223372036854775808);
+	printf("p=%lld\n", -9223372036854775808);
+	ft_printf("m=%#o\n", 0);
+	printf("p=%#o\n", 0);
+	ft_printf("m=%.0p, %.p\n", 0, 0);
+	printf("p=%.0p, %.p\n", 0, 0);
+	ft_printf("m=%.5p\n", 0);
+	printf("p=%.5p\n", 0);
+	ft_printf("m=%#.o, %#.0o\n", 0, 0);
+	printf("p=%#.o, %#.0o\n", 0, 0);
+	ft_printf("m=%.o, %.0o\n", 0, 0);
+	printf("p=%.o, %.0o\n", 0, 0);
+	ft_printf("m={%05.c}\n", 0);
+	printf("p={%05.c}\n", 0);
 	return (0);
 }
