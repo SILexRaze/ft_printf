@@ -1,4 +1,4 @@
-
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:26:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:40:56 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 23:09:06 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 int		main(void)
 {
 	char	*c;
-	short a = 10;
-	c = "salut";
+	short	a;
 
+	a = 10;
+	c = "salut";
 	ft_printf("%5d\n", -42);
 	printf("%5d\n", -42);
 	ft_printf("@moulitest: %.10d\n", -42);
@@ -27,12 +28,12 @@ int		main(void)
 	printf("%+10.5d\n", 4242);
 	ft_printf("%10.5d\n", 4242);
 	printf("%10.5d\n", 4242);
-	ft_printf("%-10.5d\n",-42);
-	printf("%-10.5d\n",-42);
-	ft_printf("%+05d\n",42);
-	printf("%+05d\n",42);
-	ft_printf("%3.2d\n",-1);
-	printf("%3.2d\n",-1);
+	ft_printf("%-10.5d\n", -42);
+	printf("%-10.5d\n", -42);
+	ft_printf("%+05d\n", 42);
+	printf("%+05d\n", 42);
+	ft_printf("%3.2d\n", -1);
+	printf("%3.2d\n", -1);
 	ft_printf("%10.2s\n", "salut");
 	printf("%10.2s\n", "salut");
 	ft_printf("%10.1x\n", 255);
@@ -40,7 +41,7 @@ int		main(void)
 	ft_printf("%10.1X\n", 255);
 	printf("%10.1X\n", 255);
 	printf("p=%10c\n", 'v');
-	ft_printf("m=%10c\n",'v');
+	ft_printf("m=%10c\n", 'v');
 	printf("p%10p\n", c);
 	ft_printf("m%10.5p\n", c);
 	ft_printf("m=%10.5i\n", 1);
@@ -106,7 +107,6 @@ int		main(void)
 	printf("% +.1d\n", +10);
 	ft_printf("%-10d\n", -12000);
 	printf("%-10d\n", -12000);
-
 	printf("\nunsigned\n");
 	ft_printf("%.5u\n", 10);
 	printf("%.5u\n", 10);
@@ -118,7 +118,6 @@ int		main(void)
 	printf("%+.2u\n", +10);
 	ft_printf("%-10.10u\n", -12000);
 	printf("%-10.10u\n", -12000);
-
 	printf("\noctal\n");
 	ft_printf("%.5o\n", 10);
 	printf("%.5o\n", 10);
@@ -130,7 +129,6 @@ int		main(void)
 	printf("%+.2o\n", +10);
 	ft_printf("%-10.100o\n", -12000);
 	printf("%-10.100o\n", -12000);
-
 	printf("\nfloat\n");
 	ft_printf("%.15f\n", 10.123);
 	printf("%.15f\n", 10.123);
@@ -142,7 +140,6 @@ int		main(void)
 	printf("%+.0f\n", 10.0);
 	ft_printf("%-10.100f\n", -12000.0);
 	printf("%-10.100f\n", -12000.0);
-
 	printf("\nminhex\n");
 	ft_printf("%#-10x\n", 10);
 	printf("%#-10x\n", 10);
@@ -154,7 +151,6 @@ int		main(void)
 	printf("%+.2x\n", +10);
 	ft_printf("% -10.100x\n", -12000);
 	printf("% -10.100x\n", -12000);
-
 	printf("\nmaxhex\n");
 	ft_printf("%#-10X\n", 10);
 	printf("%#-10X\n", 10);
@@ -166,7 +162,6 @@ int		main(void)
 	printf("%+.2X\n", +10);
 	ft_printf("% -10.100X\n", -12000);
 	printf("% -10.100X\n", -12000);
-
 	ft_printf("m=%lld\n", -9223372036854775808);
 	printf("p=%lld\n", -9223372036854775808);
 	ft_printf("m=%#o\n", 0);
@@ -181,5 +176,15 @@ int		main(void)
 	printf("p=%.o, %.0o\n", 0, 0);
 	ft_printf("m={%05.c}\n", 0);
 	printf("p={%05.c}\n", 0);
+	ft_printf("%p\n", 1234);
+	printf("%p\n", 1234);
+	ft_printf("%9.2p\n", 1234);
+	printf("%9.2p\n", 1234);
+	ft_printf("%9.2p\n", 1234);
+	printf("%9.2p\n", 1234);
+	ft_printf("%9.2p\n", 1234567);
+	printf("%9.2p\n", 1234567);
+	ft_printf("%2.9p\n", 1234567);
+	printf("%2.9p\n", 1234567);
 	return (0);
 }

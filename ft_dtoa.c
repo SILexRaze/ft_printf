@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 21:38:52 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:39:17 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 23:05:19 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ char		*ft_alloc(long double value, int p)
 	char	*dst;
 
 	n = (t_ull)((value < 0) ? -value : value);
-	tmp = ft_strnew(0);
 	if (!(dst = ft_strnew(ft_nbr_len(value, p) + 3)))
 		return (NULL);
-	tmp = ft_itoa(n);
+	if (!(tmp = ft_itoa(n)))
+		return (NULL);
 	ft_strcat(dst, tmp);
 	ft_strdel(&tmp);
 	return (dst);

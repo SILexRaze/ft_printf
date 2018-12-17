@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:08:25 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 23:04:02 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ char	*ft_usgd(t_data *data)
 	data->len = ft_strlen(data->prs->tmp);
 	ft_padding(data);
 	if (data->flags->minus == 1)
-		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
+		data->prs->tmp = ft_strdjoind(data->prs->tmp, data->pad);
 	else
-		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
+		data->prs->tmp = ft_strdjoind(data->pad, data->prs->tmp);
 	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }

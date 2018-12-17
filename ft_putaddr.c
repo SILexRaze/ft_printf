@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 19:31:56 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 22:29:07 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static char		*ft_lltoa_base_hexa(long long value, int p)
 	n = (value < 0) ? -(long)value : value;
 	sign = (value < 0 && base == 10) ? -1 : 0;
 	i = 1;
-	i = (p < i ? i : i + (p - i));
 	i = (sign == -1) ? i + 1 : i;
 	while ((n /= base) >= 1)
 		i++;
+	i = (p < i ? i : i + (p - i));
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	s[i] = '\0';

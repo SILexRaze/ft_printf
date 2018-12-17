@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 21:00:00 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:37:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 23:04:05 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_apply_width(t_data *data)
 	tmp2 = NULL;
 	if (data->flags->minus == 1)
 	{
-		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
+		data->prs->tmp = ft_strdjoind(data->prs->tmp, data->pad);
 		i = data->len;
 		while (data->prs->tmp[i])
 		{
@@ -36,7 +36,7 @@ void	ft_apply_width(t_data *data)
 		data->prs->tmp = ft_strdjoind(tmp1, tmp2);
 	}
 	else
-		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
+		data->prs->tmp = ft_strdjoind(data->pad, data->prs->tmp);
 	data->len = ft_strlen(data->prs->tmp);
 }
 
@@ -44,6 +44,7 @@ void	ft_apply_width_octal(t_data *data, int p)
 {
 	if (p == 1)
 	{
+		ft_strdel(&data->prs->tmp);
 		if (data->flags->hash == 1)
 			data->prs->tmp = ft_strdup("0");
 		else

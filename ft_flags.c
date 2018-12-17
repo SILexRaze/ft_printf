@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 21:08:36 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:09:23 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 22:45:11 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_padding(t_data *data)
 	data->pad = ft_strnew(0);
 	if (data->f_width > data->len)
 	{
+		ft_strdel(&data->pad);
 		if (!(data->pad = ft_strnew(sub)))
 			return ;
 		if (data->accu != -1)

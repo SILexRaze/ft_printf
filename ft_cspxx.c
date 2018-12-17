@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:30:54 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 22:14:56 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ char	*ft_ptr(t_data *data)
 		data->prs->tmp = ft_putaddr_to_str(t, data->accu);
 	else
 		data->prs->tmp = ft_strdup("0x");
-	data->len = ft_strlen(data->prs->tmp);
 	data->len = ft_strlen(data->prs->tmp);
 	ft_f_width(data, data->len);
 	data->len = ft_strlen(data->prs->tmp);
