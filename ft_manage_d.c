@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/16 13:28:51 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 14:05:16 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 10:17:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,26 @@ int		ft_strchr_space(char *s)
 	}
 	return (0);
 }
+
+/*void	ft_f_width_int(t_data *data)
+{
+	--> Si pas de flag 0
+		-->S'il y a le flag + ou que nb < 0
+			--> On place le signe + ou - (join)
+		--> On applique la precision
+		--> On applique le flag ' '
+		-->S'il y a le flag - 
+			--> On applique la largeur de champ avec des ' ' a droite
+		-->Sinon
+			--> On applique la largeur de champ avec des ' ' a gauche
+	--> Sinon
+		--> On applique la precision
+		-->S'il y a le flag - 
+			--> On applique la largeur de champ avec des '0' a droite
+		-->Sinon
+			--> On applique la largeur de champ avec des '0' a gauche
+		-->S'il y a le flag - et (le flag + ou que nb < 0)
+			--> On place le signe (en ecrasant un 0)
+		-->Sinon s'il n'y a pas le flag - et que (le flag + ou que nb < 0)
+			--> On place le signe (en decallant tout le texte sur la droite)
+}*/
