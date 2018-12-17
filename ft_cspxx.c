@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 19:46:39 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:30:54 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,36 +78,15 @@ char	*ft_minhex(t_data *data)
 	{
 		data->len += 2;
 		ft_padding(data);
-		if (data->flags->space == 1)
-			ft_space(data, t);
-		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		else
-			data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
+		ft_apply_width_hex(data, t, 0);
 		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
 		data->len = ft_strlen(data->prs->tmp) - 2;
 	}
-	else if (data->flags->hash == 1 && t != 0)
-	{
-		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
-		data->len = ft_strlen(data->prs->tmp);
-		ft_padding(data);
-		if (data->flags->space == 1)
-			ft_space(data, t);
-		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		else
-			data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
-	}
 	else
 	{
+		ft_apply_width_hex(data, t, 1);
 		ft_padding(data);
-		if (data->flags->space == 1)
-			ft_space(data, t);
-		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		else
-			data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
+		ft_apply_width_hex(data, t, 0);
 	}
 	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
@@ -128,37 +107,15 @@ char	*ft_maxhex(t_data *data)
 	{
 		data->len += 2;
 		ft_padding(data);
-		if (data->flags->space == 1)
-			ft_space(data, t);
-		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		else
-			data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
-
+		ft_apply_width_hex(data, t, 0);
 		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
 		data->len = ft_strlen(data->prs->tmp) - 2;
 	}
-	else if (data->flags->hash == 1 && t != 0)
-	{
-		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
-		data->len = ft_strlen(data->prs->tmp);
-		ft_padding(data);
-		if (data->flags->space == 1)
-			ft_space(data, t);
-		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		else
-			data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
-	}
 	else
 	{
+		ft_apply_width_hex(data, t, 2);
 		ft_padding(data);
-		if (data->flags->space == 1)
-			ft_space(data, t);
-		if (data->flags->minus == 1)
-			data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		else
-			data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
+		ft_apply_width_hex(data, t, 0);
 	}
 	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);

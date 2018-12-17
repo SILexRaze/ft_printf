@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.c                                       :+:      :+:    :+:   */
+/*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 13:41:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 18:56:49 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/17 21:08:36 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/17 21:09:23 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	ft_padding(t_data *data)
 {
@@ -61,4 +60,4 @@ void	ft_sign(t_data *data, long long t)
 		else
 			data->pad = ft_strjoind((t < 0 ? "-" : "+"), data->pad);
 	}
-}	
+}

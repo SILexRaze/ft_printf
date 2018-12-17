@@ -6,12 +6,11 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 17:21:47 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:37:44 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	ft_parse_llhh(char *str, t_data **data)
 {
@@ -46,8 +45,8 @@ t_flag	*ft_parse_flag(char *str, t_data *data)
 		return (0);
 	while (f_base[j])
 	{
-		i = 0;
-		while (str[i])
+		i = -1;
+		while (str[++i])
 		{
 			if (str[i] == f_base[j])
 			{
@@ -56,14 +55,10 @@ t_flag	*ft_parse_flag(char *str, t_data *data)
 				else if (j != 1)
 					*((int*)data->flags + j) = 1;
 			}
-			i++;
 		}
 		j++;
 	}
-	if (data->flags->plus == 1)
-		data->flags->space = 0;
-	if (data->flags->minus == 1)
-		data->flags->zero = 0;
+	ft_parse_priority(data);
 	return (data->flags);
 }
 
@@ -83,4 +78,12 @@ void	ft_parse_width_accu(char *str, t_data *data)
 		}
 		i++;
 	}
+}
+
+void	ft_parse_priority(t_data *data)
+{
+	if (data->flags->plus == 1)
+		data->flags->space = 0;
+	if (data->flags->minus == 1)
+		data->flags->zero = 0;
 }

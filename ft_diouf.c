@@ -6,15 +6,15 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 19:46:38 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:08:25 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 char	*ft_float(t_data *data)
 {
 	double	t;
-	int		i;
 
 	t = va_arg(data->ap, double);
 	ft_strdel(&(data->prs->tmp));
@@ -27,29 +27,14 @@ char	*ft_float(t_data *data)
 		ft_space(data, t);
 	if (data->flags->plus == 1 || t < 0)
 		ft_sign(data, t);
-	if (data->flags->minus == 1)
-	{
-		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		i = data->len;
-		while (data->prs->tmp[i])
-		{
-			if (data->prs->tmp[i] != ' ')
-				break ;
-			i++;
-		}
-		data->prs->tmp = ft_strjoind(ft_strsub(data->prs->tmp, i, ft_strlen(data->prs->tmp)- i), ft_strsub(data->prs->tmp, 0, data->len));
-
-	}
-	else
-		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
-	data->len = ft_strlen(data->prs->tmp);
+	ft_apply_width(data);
 	return (data->prs->tmp);
 }
 
 char	*ft_int(t_data *data)
 {
 	long long	t;
-	int			i;
+	char		*tmp;
 
 	ft_cast(data, &t);
 	ft_strdel(&(data->prs->tmp));
@@ -58,30 +43,19 @@ char	*ft_int(t_data *data)
 	else
 		data->prs->tmp = ft_strdup("");
 	if (t < 0)
-		data->prs->tmp = ft_strsub(data->prs->tmp, 1, ft_strlen(data->prs->tmp));
+	{
+		tmp = ft_strsub(data->prs->tmp, 1, ft_strlen(data->prs->tmp));
+		ft_strdel(&data->prs->tmp);
+		data->prs->tmp = tmp;
+	}
 	data->len = ft_strlen(data->prs->tmp);
 	ft_padding(data);
 	if (data->flags->space == 1)
 		ft_space(data, t);
 	if (data->flags->plus == 1 || t < 0)
 		ft_sign(data, t);
-	if (data->flags->minus == 1)
-	{
-		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-		i = data->len;
-		while (data->prs->tmp[i])
-		{
-			if (data->prs->tmp[i] != ' ')
-				break ;
-			i++;
-		}
-		data->prs->tmp = ft_strjoind(ft_strsub(data->prs->tmp, i, ft_strlen(data->prs->tmp) - i), ft_strsub(data->prs->tmp, 0, ft_strlen(data->prs->tmp)));
-
-	}
-	else
-		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
-	data->len = ft_strlen(data->prs->tmp);
-	if(data->flags->minus == 1 && ( t < 0 || data->flags->plus == 1))
+	ft_apply_width(data);
+	if (data->flags->minus == 1 && (t < 0 || data->flags->plus == 1))
 		(data->len)--;
 	return (data->prs->tmp);
 }
@@ -114,10 +88,8 @@ char	*ft_oct(t_data *data)
 	ft_strdel(&(data->prs->tmp));
 	if (data->accu != 0)
 		data->prs->tmp = ft_itoa_base(t, 8, data->accu);
-	else if (data->flags->hash == 1)
-		data->prs->tmp = ft_strdup("0");
 	else
-		data->prs->tmp = ft_strdup("");
+		ft_apply_width_octal(data, 1);
 	data->len = ft_strlen(data->prs->tmp);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
@@ -133,10 +105,6 @@ char	*ft_oct(t_data *data)
 	}
 	else
 		ft_padding(data);
-	if (data->flags->minus == 1)
-		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
-	else
-		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
-	data->len = ft_strlen(data->prs->tmp);
+	ft_apply_width_octal(data, 0);
 	return (data->prs->tmp);
 }

@@ -6,12 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:52:38 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 11:41:09 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:24:15 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 void	ft_f_width(t_data *data, int size)
 {
 	char	*s;
@@ -23,7 +23,7 @@ void	ft_f_width(t_data *data, int size)
 	s = (i > 0 ? ft_strnew(i) : NULL);
 	if (s == NULL)
 		return ;
-	if (data->flags->zero == 1 && data->accu == -1 && data->flags->minus == 0)
+	if (data->flags->zero == 1 && data->accu <= 0 && data->flags->minus == 0)
 		ft_memset(s, 48, i);
 	else
 		ft_memset(s, 32, i);
@@ -37,8 +37,6 @@ void	ft_f_width(t_data *data, int size)
 		else
 			data->prs->tmp = ft_strdjoind(s, data->prs->tmp);
 	}
-	if (data->accu == 0)
-		ft_memset(data->prs->tmp, ' ', ft_strlen(data->prs->tmp));
 }
 
 void	ft_accuracy(t_data *data)

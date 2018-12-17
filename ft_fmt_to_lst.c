@@ -6,11 +6,10 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:20:57 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 14:58:22 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:31:31 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
 t_list	*ft_lst_parse_flags(t_data *data, t_list **begin_list)
@@ -71,12 +70,6 @@ void	ft_lst_push_flag(t_data *data, t_list **begin_list)
 		data->f_width = -1;
 		ft_parse_width_accu(data->prs->tmp, data);
 		data->flags = ft_parse_flag(data->prs->tmp, data);
-/*		printf("\n0=%d / +=%d / -=%d / #=%d /  =%d l=%d  h=%d\n", 
-				data->flags->zero, data->flags->plus, 
-				data->flags->minus, data->flags->hash, 
-				data->flags->space, data->flags->convl, 
-				data->flags->convh);
-		printf("tmp=\t\t%s\nf_width=\t%d\naccu=\t\t%d\n", data->prs->tmp, data->f_width, data->accu);*/
 		ft_parse_llhh(data->prs->tmp, &data);
 		ft_dispatch(data);
 		ft_list_pushback(begin_list, ft_strdup(data->prs->tmp), data->len);
