@@ -6,12 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 14:18:20 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/17 16:26:58 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h>
 char		*ft_itoa_base(long long value, int base, int p)
 {
 	char		*s;
@@ -41,7 +41,7 @@ char		*ft_itoa_base(long long value, int base, int p)
 	return (s);
 }
 
-*char		*ft_itoa_bl(long long value, int base, int p)
+char		*ft_itoa_bl(long long value, int base, int p)
 {
 	char			*s;
 	t_ull			n;
@@ -70,18 +70,16 @@ char		*ft_itoa_base(long long value, int base, int p)
 	return (s);
 }
 
-size_t		ft_nbr_len(long double value, int *p)
+size_t		ft_nbr_len(long double value, int p)
 {
 	size_t		i;
 	long double	n;
 
 	i = (value < 0 ? 2 : 1);
-	if (*p == -1)
-		*p = 6;
 	n = value;
 	while ((n /= 10) >= 1)
 		i++;
-	i += *p;
+	i += p;
 	return (i);
 }
 
@@ -90,8 +88,8 @@ char		*ft_dtoa(long double value, int p)
 	char		*dst;
 	t_ull		n;
 	int			i;
-
-	n = (t_ull)value;
+	
+	n = (t_ull)((value < 0) ? -value : value);
 	if (!(dst = ft_alloc(value, p)))
 		return (NULL);
 	i = ft_strlen(dst);
@@ -119,8 +117,9 @@ char		*ft_alloc(long double value, int p)
 	char	*tmp;
 	char	*dst;
 
-	n = (t_ull)value;
-	if (!(dst = ft_strnew(ft_nbr_len(value, &p) + 3)))
+	n = (t_ull)((value < 0) ? -value : value);
+	tmp = ft_strnew(0);
+	if (!(dst = ft_strnew(ft_nbr_len(value, p) + 3)))
 		return (NULL);
 	tmp = ft_itoa(n);
 	ft_strcat(dst, tmp);

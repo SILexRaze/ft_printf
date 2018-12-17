@@ -7,7 +7,7 @@ int	main()
 {
 	unsigned long  max = ULONG_MAX;
 	unsigned long min = 0;
-	printf("format%%lx, %%lx, 0, ULONG_MAX)\n");
+/*	printf("format%%lx, %%lx, 0, ULONG_MAX)\n");
 	ft_printf("m=%lx, %lx\n", min, max);
 	printf("p=%lx, %lx\n\n", min, max);
 	
@@ -20,11 +20,14 @@ int	main()
 	
 	printf("format={%%05p}\n");
 	ft_printf("m={%05p}\n", 0);
-	printf("p={%05p}\n\n", 0);
+	printf("p={%05p}\n\n", 0);*/
 
 	printf("format={%% 03d}\n");
 	ft_printf("m={% 03d}\n", 0);
 	printf("p={% 03d}\n\n", 0);
 	
+	ft_printf("m=%.4d\n", -424242);
+	printf("p=%.4d\n", -424242);
+
 	printf("regarder test 70 a 79\n");
 }

@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 11:31:16 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 16:57:53 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct				s_parser
 typedef struct				s_data
 {
 	char					*fmt;
+	char					*pad;
 	int						f_width;
 	int						accu;
 	int						len;
@@ -60,8 +61,12 @@ void						ft_lst_push_flag(t_data *data, t_list **begin_list);
 void						ft_lst_push_flag_txt(t_data *data,
 							t_list **begin_list);
 int							ft_printf(const char *restrict format, ...);
-int							ft_abs(int nb);
+t_ull						ft_abs(long long nb);
 int							ft_print_list(t_list **begin_list);
+
+void						ft_padding(t_data *data);
+void						ft_space(t_data *data, long long t);
+void						ft_sign(t_data *data, long long t);
 void						ft_dispatch(t_data *data);
 void						ft_str_clear(t_data *data);
 char						*ft_char(t_data *data);
@@ -75,20 +80,24 @@ char						*ft_int(t_data *data);
 char						*ft_usgd(t_data *data);
 char						*ft_oct(t_data *data);
 char						*ft_bin(t_data *data);
+
+
+int							ft_strchr_space(char *s);
 void						ft_f_width(t_data *data, int size);
 void						ft_accuracy(t_data *data);
 void						ft_accu_int(t_data *data);
 void						ft_f_width_int(t_data *data, long long t);
 void						ft_manage_int(t_data *data, long long t);
 void						ft_place_sign(char *s, t_data *data);
-int							ft_strchr_space(char *s);
 void						ft_cast(t_data *data, long long *t);
 void						ft_ucast(t_data *data, unsigned long long *t);
-char						*ft_itoa_bl(long long value, int base);
-char						*ft_itoa_base(long long value, int base);
+
+
+char						*ft_itoa_bl(long long valoe, int base, int p);
+char						*ft_itoa_base(long long value, int base, int p);
 char						*ft_dtoa(long double value, int p);
 char						*ft_putaddr_to_str(long long value);
-char						*ft_utoa(unsigned long long n);
+char						*ft_utoa(unsigned long long n, int p);
 void						ft_round(char **str);
 char						*ft_alloc(long double value, int p);
 #endif

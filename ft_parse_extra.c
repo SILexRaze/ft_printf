@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 12:11:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/14 15:52:41 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/17 16:54:49 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_is_zero(char *str, int i)
 	return (1);
 }
 
-int		ft_abs(int nb)
+t_ull	ft_abs(long long nb)
 {
 	if (nb < 0)
 		return (-nb);

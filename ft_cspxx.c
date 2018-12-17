@@ -6,12 +6,12 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 11:40:25 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 17:46:39 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h>
 char	*ft_char(t_data *data)
 {
 	char	t;
@@ -28,7 +28,6 @@ char	*ft_char(t_data *data)
 	if (t == 0)
 	{
 		data->len = ft_strlen(data->prs->tmp) + 1;
-		ft_f_width(data, data->len);
 		data->len = ft_strlen(data->prs->tmp) + 1;
 	}
 	else
@@ -64,56 +63,72 @@ char	*ft_string(t_data *data)
 
 char	*ft_minhex(t_data *data)
 {
-	unsigned long long	t;
+	t_ull	t;
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	data->prs->tmp = ft_itoa_bl(t, 16);
-	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
-		ft_accuracy(data);
+	data->prs->tmp = ft_itoa_bl(ft_abs(t), 16, data->accu);
 	data->len = ft_strlen(data->prs->tmp);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
-		ft_f_width(data, data->len + 2);
+		data->len += 2;
+		ft_padding(data);
 		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
-		data->len = ft_strlen(data->prs->tmp);
+		data->len = ft_strlen(data->prs->tmp) - 2;
 	}
 	else if (data->flags->hash == 1 && t != 0)
 	{
 		data->prs->tmp = ft_strjoind("0x", data->prs->tmp);
 		data->len = ft_strlen(data->prs->tmp);
-		ft_f_width(data, data->len);
+		ft_padding(data);
 	}
 	else
-		ft_f_width(data, ft_strlen(data->prs->tmp));
+		ft_padding(data);
+	if (data->flags->space == 1)
+		ft_space(data, t);
+	if (data->flags->minus == 1)
+	{
+		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
+	}
+	else
+		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
 	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }
 
 char	*ft_maxhex(t_data *data)
 {
-	unsigned long long	t;
+	t_ull	t;
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	data->prs->tmp = ft_itoa_base(t, 16);
-	if ((t_ull)data->accu > (t_ull)ft_strlen(data->prs->tmp) || data->accu == 0)
-		ft_accuracy(data);
+	data->prs->tmp = ft_itoa_base(ft_abs(t), 16, data->accu);
 	data->len = ft_strlen(data->prs->tmp);
+
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
 	{
-		ft_f_width(data, data->len + 2);
+		data->len += 2;
+		ft_padding(data);
 		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
-		data->len = ft_strlen(data->prs->tmp);
+		data->len = ft_strlen(data->prs->tmp) - 2;
 	}
 	else if (data->flags->hash == 1 && t != 0)
 	{
 		data->prs->tmp = ft_strjoind("0X", data->prs->tmp);
 		data->len = ft_strlen(data->prs->tmp);
-		ft_f_width(data, data->len);
+		ft_padding(data);
 	}
 	else
-		ft_f_width(data, data->len);
+		ft_padding(data);
+	if (data->flags->space == 1)
+		ft_space(data, t);
+	if (data->flags->minus == 1)
+	{
+		data->prs->tmp = ft_strjoin(data->prs->tmp, data->pad);
+	}
+	else
+		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
+
 	data->len = ft_strlen(data->prs->tmp);
 	return (data->prs->tmp);
 }

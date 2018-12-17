@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/16 13:28:51 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 11:38:08 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 14:15:46 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	ft_manage_int(t_data *data, long long t)
 {
 	if (t >= 0 && data->flags->space == 1
-			&& (size_t)data->f_width >= ft_strlen(data->prs->tmp))
+			&& (size_t)data->f_width >= ft_strlen(data->prs->tmp) 
+			&& data->flags->zero != 1)
 		data->prs->tmp = ft_strjoind(" ", data->prs->tmp);
 	if (t >= 0 && data->flags->plus == 1)
 	{
@@ -25,6 +26,10 @@ void	ft_manage_int(t_data *data, long long t)
 			data->prs->tmp = ft_strjoind("+", data->prs->tmp);
 	}
 	ft_f_width(data, ft_strlen(data->prs->tmp));
+	if (t >= 0 && data->flags->space == 1
+			&& (size_t)data->f_width >= ft_strlen(data->prs->tmp) 
+			&& data->flags->zero == 1)
+		data->prs->tmp[0] = ' ';
 //	ft_f_width_int(data, t);
 	if (t < 0 || data->flags->plus == 1)
 		ft_place_sign(data->prs->tmp, data);
@@ -54,7 +59,23 @@ void	ft_place_sign(char *s, t_data *data)
 		data->prs->tmp = ft_strjoind("0", data->prs->tmp);
 		i = 0;
 	}
-	data->prs->tmp[i] = sign;
+	if (data->flags->zero == 1 && data->f_width > 0)
+		data->prs->tmp[i] = sign;
+	else if (data->f_width > 0 || data->accu > 0)
+	{
+		i = 0;
+		while (data->prs->tmp[i])
+		{
+			if (data->prs->tmp[i] > '0' && data->prs->tmp[i] <= '9')
+				break ;
+			i++;
+		}
+		data->prs->tmp[i - 1] = sign;
+	}
+	else if (data->f_width < 1)
+	{
+		data->prs->tmp = ft_strjoind(&sign, data->prs->tmp);
+	}
 }
 
 int		ft_strchr_space(char *s)
@@ -92,7 +113,7 @@ int		ft_strchr_space(char *s)
   --> On place le signe (en ecrasant un 0)
   -->Sinon s'il n'y a pas le flag - et que (le flag + ou que nb < 0)
   --> On place le signe (en decallant tout le texte sur la droite)
-  }
+  }*/
 
 void	ft_f_width_int(t_data *data, long long t)
 {
@@ -102,8 +123,9 @@ void	ft_f_width_int(t_data *data, long long t)
 	{
 		if (data->flags->plus == 1 || t < 0)
 			data->prs->tmp = ft_strjoin((t < 0 ? "-" : "+"), data->prs->tmp);
-		ft_accu_int(data);
-		if (t >= 0)
+		if ((t_ull)data->accu > ((t_ull)ft_strlen(data->prs->tmp) || data->accu == 0))
+			ft_accu_int(data);
+		if (t >= 0 && data->flags->space == 1)
 			data->prs->tmp = ft_strjoin(" ", data->prs->tmp);
 		data->len = ft_strlen(data->prs->tmp);
 		if (data->flags->minus == 1)
@@ -123,7 +145,8 @@ void	ft_f_width_int(t_data *data, long long t)
 	}
 	else
 	{
-		ft_accu_int(data);
+		if ((t_ull)data->accu > ((t_ull)ft_strlen(data->prs->tmp) || data->accu == 0))
+			ft_accu_int(data);
 		data->len = ft_strlen(data->prs->tmp);
 		if (data->flags->minus)
 		{
@@ -139,6 +162,15 @@ void	ft_f_width_int(t_data *data, long long t)
 			ft_memset(s, '0', data->f_width - data->len);
 			data->prs->tmp = ft_strjoin(s, data->prs->tmp);
 		}
+		if (t >= 0 && data->flags->space == 1 && !(data->flags->plus == 1 || t < 0))
+			{
+				if (data->f_width > data->len && data->flags->minus != 1)
+					data->prs->tmp[0] = ' ';
+				else
+					data->prs->tmp = ft_strjoind(" ", data->prs->tmp);
+				if (data->flags->minus == 1 && data->f_width > data->len)
+					data->prs->tmp = ft_strsub(data->prs->tmp, 0, ft_strlen(data->prs->tmp) - 1);
+			}
 		data->len = ft_strlen(data->prs->tmp);
 		if (data->flags->minus != 1 && (data->flags->plus == 1 || t < 0))
 		{
@@ -155,4 +187,4 @@ void	ft_f_width_int(t_data *data, long long t)
 				data->prs->tmp = ft_strjoin((t < 0 ? "-" : "+"), data->prs->tmp);
 		}
 	}
-}*/
+}

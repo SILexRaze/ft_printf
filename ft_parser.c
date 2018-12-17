@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 11:48:55 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 17:21:47 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ t_flag	*ft_parse_flag(char *str, t_data *data)
 		}
 		j++;
 	}
+	if (data->flags->plus == 1)
+		data->flags->space = 0;
+	if (data->flags->minus == 1)
+		data->flags->zero = 0;
 	return (data->flags);
 }
 

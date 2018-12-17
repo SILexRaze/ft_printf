@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/16 18:46:24 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/17 14:19:00 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS		=		ft_printf.c			\
 					ft_format.c			\
 					ft_print_list.c		\
 					ft_mod.c			\
+					ft_flags.c			\
 					ft_manage_d.c
 LIBFT		=		libft/
 OBJ			=		$(SRCS:.c=.o)
