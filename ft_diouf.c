@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 17:46:36 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/17 18:23:08 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,14 @@ char	*ft_int(t_data *data)
 				break ;
 			i++;
 		}
-		data->prs->tmp = ft_strjoind(ft_strsub(data->prs->tmp, i, ft_strlen(data->prs->tmp)- i), ft_strsub(data->prs->tmp, 0, data->len));
+		data->prs->tmp = ft_strjoind(ft_strsub(data->prs->tmp, i, ft_strlen(data->prs->tmp) - i), ft_strsub(data->prs->tmp, 0, ft_strlen(data->prs->tmp)));
 
 	}
 	else
 		data->prs->tmp = ft_strjoin(data->pad, data->prs->tmp);
 	data->len = ft_strlen(data->prs->tmp);
+	if(data->flags->minus == 1 && ( t < 0 || data->flags->plus == 1))
+		(data->len)--;
 	return (data->prs->tmp);
 }
 
