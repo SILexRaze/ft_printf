@@ -6,11 +6,13 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:38:47 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:33:43 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+#include <stdio.h>
 
 char		*ft_itoa_base(long long value, int base, int p)
 {
@@ -29,7 +31,7 @@ char		*ft_itoa_base(long long value, int base, int p)
 	i = (p < i ? i : i + (p - i));
 	i = (sign == -1) ? i + 1 : i;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
-		return (NULL);
+		exit (0);
 	s[i] = '\0';
 	n = (t_ull)((value < 0) ? -value : value);
 	while (i-- + sign)
@@ -58,7 +60,7 @@ char		*ft_itoa_bl(long long value, int base, int p)
 	i = (p < i ? i : i + (p - i));
 	i = (sign == -1) ? i + 1 : i;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
-		return (NULL);
+		exit (0);
 	s[i] = '\0';
 	n = (t_ull)((value < 0) ? -value : value);
 	while (i-- + sign)

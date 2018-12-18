@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 12:59:31 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/07 19:33:38 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:31:20 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 	char	*str;
 
 	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
-		return (NULL);
+		exit (0);
 	ft_bzero(str, size + 1);
 	return (str);
 }
