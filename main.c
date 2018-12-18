@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 11:26:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 13:46:48 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 14:42:33 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,9 @@ int		main(void)
 	printf("%2.9p\n", 1234567);
 	ft_printf("%lu\n", (unsigned long)-42);
 	printf("%lu\n", (unsigned long)-42);
-	ft_printf("m=test %-7 %007d%-10.2ls!!\n", 0xd777, 0x45, L"Lã<80>");
-	printf("p=test %-7 %007d%-10.2ls!!\n", 0xd777, 0x45, L"ã<80>");
+	ft_printf("%.15s\n", "coco");
+	printf("%.15s\n", "coco");
+	ft_printf("hello ca%----4c %1c va %10c%-c ??\n", '\0', '\n', (char)564, 0);
+	printf("hello ca%----4c %1c va %10c%-c ??\n", '\0', '\n', (char)564, 0);
 	return (0);
 }
