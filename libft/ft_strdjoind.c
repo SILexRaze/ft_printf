@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 11:56:10 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 11:31:49 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 12:02:10 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ char	*ft_strdjoind(char *s1, char *s2)
 		ft_strdel(&s1);
 		return (str);
 	}
-	return (NULL);
+	return (s1);
 }
