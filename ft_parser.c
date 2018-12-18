@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 14:47:37 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 15:22:50 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	ft_parse_llhh(char *str, t_data **data)
 		if (str[i - 1] == 'l')
 			(*data)->flags->convl++;
 	}
+	else if (str[i] == 'L')
+		(*data)->flags->convbl++;
 }
 
 t_flag	*ft_parse_flag(char *str, t_data *data)

@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 13:04:45 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/18 15:22:19 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct				s_flag
 	int						space;
 	int						convh;
 	int						convl;
+	int						convbl;
 }							t_flag;
 
 typedef struct				s_parser
@@ -92,6 +93,7 @@ void						ft_manage_int(t_data *data, long long t);
 void						ft_place_sign(char *s, t_data *data);
 void						ft_cast(t_data *data, long long *t);
 void						ft_ucast(t_data *data, unsigned long long *t);
+void						ft_cast_l(t_data *data, long double *t);
 
 void						ft_parse_priority(t_data *data);
 void						ft_apply_width(t_data *data);

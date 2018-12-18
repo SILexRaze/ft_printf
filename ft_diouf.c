@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 14:00:27 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 15:24:59 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_float(t_data *data)
 {
-	double	t;
+	long double	t;
 
-	t = va_arg(data->ap, double);
+	ft_cast_l(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	if (data->accu == -1)
 		data->accu = 6;
@@ -28,6 +28,8 @@ char	*ft_float(t_data *data)
 	if (data->flags->plus == 1 || t < 0)
 		ft_sign(data, t);
 	ft_apply_width(data);
+	if (t < 0 && data->flags->minus == 1)
+		data->len--;
 	return (data->prs->tmp);
 }
 

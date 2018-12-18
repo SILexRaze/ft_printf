@@ -6,7 +6,7 @@
 /*   By: mabouce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 14:44:19 by mabouce           #+#    #+#             */
-/*   Updated: 2018/12/18 12:58:51 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/18 15:21:44 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,12 @@ void	ft_ucast(t_data *data, unsigned long long *t)
 		*t = (t_ull)((unsigned long long)va_arg(data->ap, t_ull));
 	else
 		*t = (t_ull)va_arg(data->ap, unsigned int);
+}
+
+void	ft_cast_l(t_data *data, long double *t)
+{
+	if (data->flags->convbl == 1)
+		*t = va_arg(data->ap, long double);
+	else
+		*t = (long double)va_arg(data->ap, double);
 }
