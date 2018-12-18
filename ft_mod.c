@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/15 14:34:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/16 16:43:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:39:11 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ char	*ft_mod(t_data *data)
 	char	t;
 	char	*tmp;
 
-	if (!(tmp = ft_strnew(1)))
-		return (NULL);
+	tmp = ft_strnew(1);
 	t = '%';
 	if (!t)
 	{
