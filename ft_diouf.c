@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 23:04:02 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:08:51 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ char	*ft_int(t_data *data)
 
 char	*ft_usgd(t_data *data)
 {
-	unsigned long long	t;
+	t_ull	t;
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	if (data->accu != 0)
-		data->prs->tmp = ft_utoa(t, data->accu);
+		data->prs->tmp = ft_utoa_base(t, 10, data->accu);
 	else
 		data->prs->tmp = ft_strdup("");
 	data->len = ft_strlen(data->prs->tmp);
@@ -87,7 +87,7 @@ char	*ft_oct(t_data *data)
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
 	if (data->accu != 0)
-		data->prs->tmp = ft_itoa_base(t, 8, data->accu);
+		data->prs->tmp = ft_utoa_base(t, 8, data->accu);
 	else
 		ft_apply_width_octal(data, 1);
 	data->len = ft_strlen(data->prs->tmp);

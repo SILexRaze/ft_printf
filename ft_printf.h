@@ -6,7 +6,7 @@
 /*   By: hwolff <hwolff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:53:53 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:37:45 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 13:04:45 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ void						ft_apply_width(t_data *data);
 void						ft_apply_width_octal(t_data *data, int p);
 void						ft_apply_width_hex(t_data *data, t_ull t, int p);
 
-char						*ft_itoa_bl(long long valoe, int base, int p);
+char						*ft_utoa_bl(t_ull valoe, int base, int p);
 char						*ft_itoa_base(long long value, int base, int p);
 char						*ft_dtoa(long double value, int p);
 char						*ft_putaddr_to_str(long long value, int p);
-char						*ft_utoa(unsigned long long n, int p);
+char						*ft_utoa_base(t_ull n, int base, int p);
 char						*ft_alloc(long double value, int p);
 void						ft_round(char **str);
 #endif

@@ -6,28 +6,58 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 18:49:44 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 11:39:23 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 13:10:02 by rvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char			*ft_utoa(unsigned long long n, int p)
+char	*ft_utoa_base(t_ull value, int base, int p)
 {
-	char				*str;
-	int					i;
-	unsigned long long	nbr;
+	char	*s;
+	t_ull	n;
+	int		i;
 
-	nbr = (unsigned long long)n;
+	if (base < 2 || base > 16)
+		return (NULL);
+	n = value;
 	i = 1;
-	while ((n /= 10) >= 1)
+	while ((n /= base) >= 1)
 		i++;
 	i = (p < i ? i : i + (p - i));
-	str = ft_strnew(i);
+	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
+		exit(0);
+	s[i] = '\0';
+	n = value;
 	while (i--)
 	{
-		str[i] = (nbr % 10) + 48;
-		nbr /= 10;
+		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'A' - 10;
+		n /= base;
 	}
-	return (str);
+	return (s);
+}
+
+char	*ft_utoa_bl(t_ull value, int base, int p)
+{
+	char	*s;
+	t_ull	n;
+	int		i;
+
+	if (base < 2 || base > 16)
+		return (NULL);
+	n = value;
+	i = 1;
+	while ((n /= base) >= 1)
+		i++;
+	i = (p < i ? i : i + (p - i));
+	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
+		exit(0);
+	s[i] = '\0';
+	n = value;
+	while (i--)
+	{
+		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'a' - 10;
+		n /= base;
+	}
+	return (s);
 }

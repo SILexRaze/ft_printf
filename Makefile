@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/17 21:39:13 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/18 13:08:13 by rvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		=		ft_printf.c			\
 					ft_fmt_to_lst.c		\
 					ft_parse_extra.c	\
 					ft_cspxx.c			\
-					ft_multiple_itoa.c	\
+					ft_itoa_base.c		\
 					ft_diouf.c			\
 					ft_putaddr.c		\
 					ft_round.c			\
