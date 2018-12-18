@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 13:47:13 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 13:58:09 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ char	*ft_minhex(t_data *data)
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	if (data->accu != 0)
+	if (data->accu != 0 || t != 0)
 		data->prs->tmp = ft_utoa_bl(t, 16, data->accu);
-	else
+	else if (t == 0)
 		data->prs->tmp = ft_strdup("");
 	data->len = ft_strlen(data->prs->tmp);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)
@@ -97,9 +97,9 @@ char	*ft_maxhex(t_data *data)
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	if (data->accu != 0)
+	if (data->accu != 0 || t != 0)
 		data->prs->tmp = ft_utoa_base(t, 16, data->accu);
-	else
+	else if (t == 0)
 		data->prs->tmp = ft_strdup("");
 	data->len = ft_strlen(data->prs->tmp);
 	if (data->flags->hash == 1 && data->flags->zero == 1 && t != 0)

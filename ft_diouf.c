@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:47:47 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 13:08:51 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:58:10 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ char	*ft_usgd(t_data *data)
 
 	ft_ucast(data, &t);
 	ft_strdel(&(data->prs->tmp));
-	if (data->accu != 0)
+	if (data->accu != 0 || t != 0)
 		data->prs->tmp = ft_utoa_base(t, 10, data->accu);
-	else
+	else if (t == 0)
 		data->prs->tmp = ft_strdup("");
 	data->len = ft_strlen(data->prs->tmp);
 	ft_padding(data);
