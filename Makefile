@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/18 13:08:13 by rvalenti         ###   ########.fr        #
+#    Updated: 2018/12/18 13:47:30 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS		=		ft_printf.c			\
 					ft_dtoa.c
 LIBFT		=		libft/
 OBJ			=		$(SRCS:.c=.o)
-CC			=		gcc -Wall -Wextra -Werror -g
+CC			=		gcc -Wall -Wextra -Werror
 NAME		=		libftprintf.a
 .PHONY		=		all $(NAME) $(OBJ) clean fclean re
 _UNDER=$'\x1b[4m$'

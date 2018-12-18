@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:36:56 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 13:04:33 by rvalenti         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:47:13 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_string(t_data *data)
 		ft_strdel(&data->prs->tmp);
 		data->prs->tmp = ft_strdup("(null)");
 	}
-	else
+	else if (data->flags->convl == 0)
 	{
 		ft_strdel(&data->prs->tmp);
 		data->prs->tmp = ft_strdup(t);
