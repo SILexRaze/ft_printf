@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:28:12 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/17 21:37:44 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:41:04 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ t_flag	*ft_parse_flag(char *str, t_data *data)
 
 	j = 0;
 	f_base = "#0-+ ";
-	if (!(data->flags = (t_flag *)ft_memalloc(sizeof(t_flag))))
-		return (0);
+	data->flags = (t_flag *)ft_memalloc(sizeof(t_flag));
 	while (f_base[j])
 	{
 		i = -1;
