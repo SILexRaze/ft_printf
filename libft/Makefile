@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/13 11:41:19 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/18 15:35:19 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,33 +36,20 @@ OBJ			=		$(SRCS:.c=.o)
 CC			=		gcc -Wall -Wextra -Werror
 NAME		=		libft.a
 
-_BOLD=$'\x1b[1m$'
-_UNDER=$'\x1b[4m$'
-_GREY=$'\x1b[30m$'
-_RED=$'\x1b[31m$'
-_GREEN=$'\x1b[32m$'
-_YELLOW=$'\x1b[33m$'
-_BLUE=$'\x1b[34m$'
-_PURPLE=$'\x1b[35m$'
-_CYAN=$'\x1b[36m$'
-_WHITE=$'\x1b[37m$'
-_END=$'\x1b[0m$'
-_REV=$'\x1b[7m$'
-
 all:	$(NAME)
 
 %.o :	%.c ./libft.h
-	@$(CC) -I ./libft.h -c -o $@ $<
+	$(CC) -I ./libft.h -c -o $@ $<
 
 $(NAME): $(OBJ)
-	@$(CC) -I ./libft.h -c $(SRCS)
-	@ar rcs $(NAME) $(OBJ)
-	@echo "\n$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
+	$(CC) -I ./libft.h -c $(SRCS)
+	ar rcs $(NAME) $(OBJ)
+	echo "\n$(_WHITE)$(NAME)$(_GREEN)\t\t[OK]$(_END)"
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean:	clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re:	fclean $(NAME)

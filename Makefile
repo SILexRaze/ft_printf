@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/12/18 14:20:25 by vifonne          ###   ########.fr        #
+#    Updated: 2018/12/18 15:35:01 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,6 @@ OBJ			=		$(SRCS:.c=.o)
 CC			=		gcc -Wall -Wextra -Werror
 NAME		=		libftprintf.a
 .PHONY		=		all $(NAME) $(OBJ) clean fclean re
-_UNDER=$'\x1b[4m$'
-_GREEN=$'\x1b[32m$'
-_YELLOW=$'\x1b[33m$'
-_WHITE=$'\x1b[37m$'
-_END=$'\x1b[0m$'
 
 all:	$(NAME)
 
@@ -46,7 +41,6 @@ $(NAME): $(OBJ)
 	make -C $(LIBFT)
 	cp libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJ)
-	@echo "$(_WHITE)$(NAME)\t$(_GREEN)[OK]$(_END)"
 
 %.o: %.c
 	$(CC) -I $(LIBFT) -I includes/ -c $< -o $@
