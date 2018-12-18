@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:34:23 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 11:32:55 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:41:32 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	{
 		end = (size_t)start + len;
 		if (!(str = ft_strnew(len)))
-			exit (0);
+			exit(0);
 		while (start < end && s[start])
 			str[i++] = s[start++];
 		str[i] = '\0';

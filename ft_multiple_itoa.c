@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:19 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 11:33:43 by mabouce          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:40:40 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_itoa_base(long long value, int base, int p)
 	i = (p < i ? i : i + (p - i));
 	i = (sign == -1) ? i + 1 : i;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
-		exit (0);
+		exit(0);
 	s[i] = '\0';
 	n = (t_ull)((value < 0) ? -value : value);
 	while (i-- + sign)
@@ -60,7 +60,7 @@ char		*ft_itoa_bl(long long value, int base, int p)
 	i = (p < i ? i : i + (p - i));
 	i = (sign == -1) ? i + 1 : i;
 	if (!(s = (char*)malloc(sizeof(char) * (i + 1))))
-		exit (0);
+		exit(0);
 	s[i] = '\0';
 	n = (t_ull)((value < 0) ? -value : value);
 	while (i-- + sign)

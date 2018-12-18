@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 21:08:36 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 11:38:54 by vifonne          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:40:24 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_padding(t_data *data)
 	if (data->f_width > data->len)
 	{
 		ft_strdel(&data->pad);
-		data->pad = ft_strnew(sub)
+		data->pad = ft_strnew(sub);
 		if (data->accu != -1)
 			data->flags->zero = 0;
 		ft_memset(data->pad, (data->flags->zero == 1 ? 48 : 32), sub);
